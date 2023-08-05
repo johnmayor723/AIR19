@@ -43,12 +43,12 @@ app.get('/tracking', function(req, res) {
 app.get('/contact', function(req, res) {
   res.render('contact');
 });
-app.get('/services', function(req, res) {
-  res.render('services');
+app.get('/service', function(req, res) {
+  res.render('service');
 });
 
-app.post('/track', function(req, res) {
-  var my_data = req.body.trackinid
+app.post('/tracking', function(req, res) {
+  var my_data = req.body.trackingid
   const my_d = "REF342800AR8"
   
   if ( my_data == my_d){
