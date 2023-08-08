@@ -23,35 +23,20 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    rel="stylesheet"
-    />
-    <!-- MDB -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"
-    rel="stylesheet"
-    />
     <style>
         .hh-grayBox {
 	
-	margin-bottom: 20px;
-	padding: 35px;
-  margin-top: 20px;
-}
-.pt45{padding-top:45px;}
-.order-tracking{
-	text-align: center;
-	width: 33.33%;
-	position: relative;
-	display: block;
-}
+        margin-bottom: 20px;
+        padding: 35px;
+        margin-top: 20px;
+    }
+    .pt45{padding-top:45px;}
+    .order-tracking{
+        text-align: center;
+        width: 33.33%;
+        position: relative;
+        display: block;
+    }
 .order-tracking .is-complete{
 	display: block;
 	position: relative;
@@ -189,117 +174,12 @@
         <div class="container text-center py-5">
             <h1 class="text-white display-3">Track & Trace</h1>
             <div class="d-inline-flex align-items-center text-white">
-                <p class="m-0"><a class="text-white" href="/">Track Another Shipment</a></p>
+                <p class="m-0"><a class="text-white" href="#">Create Tracking Information For A Shipment</a></p>
                 <i class="fa fa-circle px-3"></i>
                 <p class="m-0"></p>
             </div>
         </div>
     </div>
-
- 
-
-
-    <section>
-    <!--? slider Area Start-->
-   
-    <!-- slider Area End-->
-    <!--? our info Start -->
-    
-    <!-- our info End -->
-    <!--? Categories Area Start -->
-    
-    <div class="about-low-area padding-bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <div class="about-caption mb-50">
-                        <!-- Section Tittle -->
-                        
-                        <div style='display:flex;flex-direction:column;justify-content:center;align-items:center;' class="container">
-                       <div class="row">
-						<div class=" hh-grayBox pt45 pb20">
-							<div class="row ">
-							   <div style='margin-top:60px' class="section-tittle mb-35">
-                           <P> <span style="font-weight:bold;font-size:25px;color: #1F1F2E;">SCHEDULED DELEVERY DATE :</span><br><span style='color:#FF4800;font-size:40px;font-weight:bold;'>Pending</span> </P>
-                             <P> <span style="font-weight: bold;font-size:25px;color: #1F1F2E;">Delivery Status :</span><br><span style='color:#FF4800;font-size:40px;font-weight:bold;'>In Transit</span> </P>
-                           
-                        </div>
-                       
-							</div>
-						</div>
-					</div>
-                  </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-sm-12">
-                    <!-- about-img -->
-                    <div style="margin-top:120px;">
-                    <div class="container">
-                        <P> <span style="font-weight:bold;font-size:19px;color: #1F1F2E;">Tracking id : <%=data.tnumber %></span>
-                            <span style='font-size:19px;'><%= data.tracking%></span> </P>
-                             
-                      <div class="row">
-						<div class="col-12 col-md-10 hh-grayBox pt45 pb20">
-							<div class="row justify-content-between">
-								<div class="order-tracking completed">
-									<span class="is-complete"></span>
-									<p>Ordered<br><span><%=data.pdate%></span></p>
-								</div>
-								<div class="order-tracking completed">
-									<span class="is-complete"></span>
-									<p>Shipped<br><span><%=data.ddate %></span></p>
-								</div>
-                                
-								<div class="order-tracking">
-									<span class="is-complete"></span>
-									<p>Delivered<br><span><%=data.ddate %></span></p>
-								</div>
-							</div>
-						</div>
-					</div>
-                    <a style="background-color: #1F1F2E;color: white;border-radius: 8px;"
-                      class="btn  btn-lg" href="#" data-mdb-toggle="modal" data-mdb-target="#exampleModal">View Shipment Details</a>
-                    </div>
-                    </div>
-                </div> 
-                <div style="height: 50px;"></div>
-               
-            </div>
-        </div>
-    </div>
-  
-     <!-- Button trigger modal -->
-
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Shipment details</h5>
-          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <div>
-                <ul>
-                    <li> Sender's Name : <%=data.sname%></li>
-                    <li> Recepient's Name : <%=data.rname%></li>
-                    <li> Pick up Address : <%=data.saddress%></li>
-                    <li> Destination : <%=data.raddress%></li>
-                    <li> Current Location : <%=data.clocation%></li>
-                    <li> Estimated Delivery Date : <%=data.ddate%></li>
-                </ul>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
-         
-        </div>
-      </div>
-    </div>
-  </div>
-   
-    </section>
 
 
   <!-- Contact Start -->
@@ -310,34 +190,57 @@
             
             <div class="col-lg-12">
                 <h6 class="text-primary text-uppercase font-weight-bold"></h6>
-                <h3 class="mb-4" style="font-weight:bold;font-size:25px;color: #1F1F2E;"">Contact Us For Any Queries About Your Shipments</h1>
+                <h3 class="mb-4" style="font-weight:bold;font-size:25px;color: #1F1F2E;"">Create Tracking Details</h1>
                 <div class="contact-form bg-secondary" style="padding: 30px;">
                     <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                    <form action="/create"  method="post">
+                       
                         <div class="control-group">
-                            <input type="text" class="form-control border-0 p-4" id="name" placeholder="Your Name"
-                                required="required" data-validation-required-message="Please enter your name" />
-                            <p class="help-block text-danger"></p>
-                        </div>
+                          <input type="text" class="form-control border-0 p-4" id="name" name="sname" placeholder="Fullname of sender"
+                              required="required" data-validation-required-message="Please enter your name" />
+                          <p class="help-block text-danger"></p>
+                      </div>
+                      <div class="control-group">
+                        <input type="text" class="form-control border-0 p-4" id="email" name="rname" placeholder="Fullname of receiver"
+                            required="required" data-validation-required-message="Please enter your name" />
+                        <p class="help-block text-danger"></p>
+                    </div>
                         <div class="control-group">
-                            <input type="email" class="form-control border-0 p-4" id="email" placeholder="Your Email"
-                                required="required" data-validation-required-message="Please enter your email" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <input type="text" class="form-control border-0 p-4" id="subject" placeholder="Subject"
+                            <input type="text" class="form-control border-0 p-4" id="subject" name="saddress" placeholder="Originating Address"
                                 required="required" data-validation-required-message="Please enter a subject" />
                             <p class="help-block text-danger"></p>
                         </div>
                         <div class="control-group">
-                            <textarea class="form-control border-0 py-3 px-4" rows="3" id="message" placeholder="Message"
-                                required="required"
-                                data-validation-required-message="Please enter your message"></textarea>
-                            <p class="help-block text-danger"></p>
-                        </div>
+                          <input type="text" class="form-control border-0 p-4" id="subject" name="paddress" placeholder="Destination Address"
+                              required="required" data-validation-required-message="Please enter a subject" />
+                          <p class="help-block text-danger"></p>
+                      </div>
+                     
+                     <div class="control-group">
+                      <input type="text" class="form-control border-0 p-4" id="subject" name="pdate" placeholder="Pick up date"
+                          required="required" data-validation-required-message="Please enter a subject" />
+                      <p class="help-block text-danger"></p>
+                     </div>
+                     <div class="control-group">
+                      <input type="text" class="form-control border-0 p-4" id="subject" name="ddate" placeholder="Estimated delivery date"
+                          required="required" data-validation-required-message="Please enter a subject" />
+                      <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="control-group">
+                    <input type="text" class="form-control border-0 p-4" id="subject" name="clocation" placeholder="Current Location  Address"
+                        required="required" data-validation-required-message="Please enter a subject" />
+                    <p class="help-block text-danger"></p>
+                </div>
+               
+                <div class="control-group">
+                    <input type="text" class="form-control border-0 p-4" id="subject" name="tnumber" placeholder="Tracking/Reference"
+                        required="required" data-validation-required-message="Please enter a subject" />
+                    <p class="help-block text-danger"></p>
+                </div>
                         <div>
-                            <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">Send
-                                Message</button>
+                            <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">
+                                Submit Details For Creation
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -431,22 +334,14 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    
-  
-    
+
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
     <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-
-     <!-- MDB -->
-    <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"
-    ></script>
-
 </body>
 
 </html>
+

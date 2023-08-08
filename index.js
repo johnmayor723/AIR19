@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 const Tracker = require("./models")
 const mongoose = require("mongoose")
+const path = require('path')
 //const trackRouters = require('./routes')
 
 //const DBURL = "mongodb+srv://admin:password@cluster0.gftg8.mongodb.net/?retryWrites=true&w=majority"
@@ -14,6 +15,7 @@ mongoose.connect(DBURL);
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
+//app.set('view', path.join(__dirnamme, '/views'))
 app.use(express.static("public"));
 app.use(express.urlencoded())
 
@@ -49,19 +51,35 @@ app.get('/service', function(req, res) {
 
 app.post('/tracking', function(req, res) {
   var my_data = req.body.trackingid
-  const my_d = "REF342800AR8"
+  Tracker.findOne({tnumber:my_data})
+  .then(data=>{
+    if ( my_data == data.tnumber){
+      res.render('tracking', {data});
+      console.log(data)
+    }
+    res.render('error')
+  })
+  .catch(err=>{
+    console.log('err')
+  })
+ // const my_d = "REF342800AR8"
   
-  if ( my_data == my_d){
-    res.render('tracking');
-  }
-  res.send('error')
+  
+  //res.send('error')
   
 });
 
 app.post('/create', function(req, res){
   let data = req.body
-  const {sname, saddress, rname, raddress, pdate, clocation}= data
+  
+  const {sname, saddress, rname, paddress, pdate, ddate, clocation, tnumber}= data
   Tracker.create(data)
+  .then(data=>{
+    res.send(data)
+  })
+  .catch(err=>{
+    console.log(err)
+  })
 })
 
 
