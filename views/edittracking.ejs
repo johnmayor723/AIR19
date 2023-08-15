@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AIR19EXPRESS - Services</title>
- 
+    <title>AIR19EXPRESS - Track & Trace</title>
+  
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -21,29 +21,95 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
+    <style>
+        .hh-grayBox {
+	
+        margin-bottom: 20px;
+        padding: 35px;
+        margin-top: 20px;
+    }
+    .pt45{padding-top:45px;}
+    .order-tracking{
+        text-align: center;
+        width: 33.33%;
+        position: relative;
+        display: block;
+    }
+.order-tracking .is-complete{
+	display: block;
+	position: relative;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	border: 0px solid #AFAFAF;
+	background-color: #f7be16;
+	margin: 0 auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+	z-index: 2;
+}
+.order-tracking .is-complete:after {
+	display: block;
+	position: absolute;
+	content: '';
+	height: 14px;
+	width: 7px;
+	top: -2px;
+	bottom: 0;
+	left: 5px;
+	margin: auto 0;
+	border: 0px solid #AFAFAF;
+	border-width: 0px 2px 2px 0;
+	transform: rotate(45deg);
+	opacity: 0;
+}
+.order-tracking.completed .is-complete{
+	border-color: #27aa80;
+	border-width: 0px;
+	background-color: #27aa80;
+}
+.order-tracking.completed .is-complete:after {
+	border-color: #fff;
+	border-width: 0px 3px 3px 0;
+	width: 7px;
+	left: 11px;
+	opacity: 1;
+}
+.order-tracking p {
+	color: #A4A4A4;
+	font-size: 16px;
+	margin-top: 8px;
+	margin-bottom: 0;
+	line-height: 20px;
+}
+.order-tracking p span{font-size: 14px;}
+.order-tracking.completed p{color: #000;}
+.order-tracking::before {
+	content: '';
+	display: block;
+	height: 3px;
+	width: calc(100% - 40px);
+	background-color: #f7be16;
+	top: 13px;
+	position: absolute;
+	left: calc(-50% + 20px);
+	z-index: 0;
+}
+.order-tracking:first-child:before{display: none;}
+.order-tracking.completed:before{background-color: #27aa80;}
+
+    </style>
 </head>
-<!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/64d8743494cf5d49dc6a1310/1h7mobsq7';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
+
 <body>
     <!-- Topbar Start -->
     <div class="container-fluid bg-dark">
         <div class="row py-2 px-lg-5">
             <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
                 <div class="d-inline-flex align-items-center text-white">
-                    <small><i class="fa fa-phone-alt mr-2"></i>+639087922628</small>
+                    <small><i class="fa fa-phone-alt mr-2"></i>+012 345 6789</small>
                     <small class="px-3">|</small>
-                    <small><i class="fa fa-envelope mr-2"></i>help@air19express.com</small>
+                    <small><i class="fa fa-envelope mr-2"></i>info@example.com</small>
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
@@ -73,7 +139,7 @@
     <!-- Navbar Start -->
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-lg-5">
-            <a href="/" class="navbar-brand ml-lg-3">
+            <a href="index.html" class="navbar-brand ml-lg-3">
                 <h1 class="m-0 display-5 text-uppercase text-primary"><i class="fa fa-truck mr-2"></i>AIR<span style="color: black;">19</span>EXPRESS</h1>
             </a>
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -81,153 +147,115 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav m-auto py-0">
-                    <a href="/" class="nav-item nav-link ">Home</a>
+                    <a href="/index" class="nav-item nav-link ">Home</a>
                     <a href="/about" class="nav-item nav-link">About</a>
-                    <a href="/service" class="nav-item nav-link active">Service</a>
+                    <a href="/service" class="nav-item nav-link">Service</a>
                   
-                    
-                    <a href="/contact" class="nav-item nav-link">Contact</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Accounts</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="/register" class="dropdown-item">Sign Up</a>
-                            <a href="/login" class="dropdown-item">Sign In</a>
+                            <a href="/blog" class="dropdown-item">Blog Grid</a>
+                            <a href="/single" class="dropdown-item">Blog Detail</a>
                         </div>
                     </div>
+                    <a href="/contact" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="#" class="btn btn-primary py-2 px-4 d-none d-lg-block">Get A Quote</a>
+                <a href="/quote" class="btn btn-primary py-2 px-4 d-none d-lg-block">Get A Quote</a>
             </div>
         </nav>
     </div>
     <!-- Navbar End -->
 
 
-    <!-- Header Start -->
+   
     <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container text-center py-5">
-            <h1 class="text-white display-3">Service</h1>
+            <h1 class="text-white display-3">Admin Panel</h1>
             <div class="d-inline-flex align-items-center text-white">
-                <p class="m-0"><a class="text-white" href="">Home</a></p>
+                <p class="m-0"><a class="text-white" href="#">Update Tracking Information For this  Shipment</a></p>
                 <i class="fa fa-circle px-3"></i>
-                <p class="m-0">Service</p>
+                <p class="m-0"></p>
             </div>
         </div>
     </div>
-    <!-- Header End -->
 
-
-    <!-- Services Start -->
-    <div class="container-fluid pt-5">
-        <div class="container">
-            <div class="text-center pb-2">
-                <h6 class="text-primary text-uppercase font-weight-bold">Our Services</h6>
-                <h1 class="mb-4">Best Logistic Services</h1>
-            </div>
-            <div class="row pb-3">
-                <div class="col-lg-3 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
-                        <i class="fa fa-2x fa-plane text-dark pr-3"></i>
-                        <h6 class="text-white font-weight-medium m-0">Air Freight</h6>
+  
+  <div class="container-fluid py-5">
+    <div class="container">
+        <div style="height: 50px;"></div>
+        <div class="row">
+            <div class="col-lg-12">
+                <h6 class="text-primary text-uppercase font-weight-bold"></h6>
+                <h3 class="mb-4" style="font-weight:bold;font-size:25px;color: #1F1F2E;"">Create Tracking Details</h1>
+                <div class="contact-form bg-secondary" style="padding: 30px;">
+                    <div id="success"></div>
+                    <form action="/campgrounds/<%=data._id%>?_method=PUT" method="POST">
+                        <div class="control-group">
+                          <input type="text" class="form-control border-0 p-4" id="name" value="<%=data.sname%>" name="sname" placeholder="Fullname of sender"
+                              required="required" data-validation-required-message="Please enter your name" />
+                          <p class="help-block text-danger"></p>
+                      </div>
+                      <div class="control-group">
+                        <input type="text" class="form-control border-0 p-4" id="email" value="<%=data.rname%>" name="rname" placeholder="Fullname of receiver"
+                            required="required" data-validation-required-message="Please enter your name" />
+                        <p class="help-block text-danger"></p>
                     </div>
-                    <p>Swift solutions: Air freight services propels your shipments worldwide.</p>
-                    
-                </div>
-                <div class="col-lg-3 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
-                        <i class="fa fa-2x fa-ship text-dark pr-3"></i>
-                        <h6 class="text-white font-weight-medium m-0">Ocean Freight</h6>
-                    </div>
-                    <p>Dive into global trade with ocean freight - the lifeline connecting continents, carrying dreams across waves."</p>
-              
-                </div>
-                <div class="col-lg-3 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
-                        <i class="fa fa-2x fa-truck text-dark pr-3"></i>
-                        <h6 class="text-white font-weight-medium m-0">Land Transport</h6>
-                    </div>
-                    <p>we provide grounded efficiency with our Land freight services moving your cargo seamlessly from point A to point B</p>
-                 
-                </div>
-                <div class="col-lg-3 col-md-6 text-center mb-5">
-                    <div class="d-flex align-items-center justify-content-center bg-primary mb-4 p-4">
-                        <i class="fa fa-2x fa-store text-dark pr-3"></i>
-                        <h6 class="text-white font-weight-medium m-0">Cargo Storage</h6>
-                    </div>
-                    <p>We provide safe haven for your goods with our expert cargo storage solutions.</p>
-                   
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Services End -->
-
-
-    <!--  Quote Request Start -->
-    <div class="container-fluid bg-secondary my-5">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7 py-5 py-lg-0">
-                    <h6 class="text-primary text-uppercase font-weight-bold">Get A Quote</h6>
-                    <h1 class="mb-4">Request A Free Quote</h1>
-                    <p class="mb-4">Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <h1 class="text-primary mb-2" data-toggle="counter-up">225</h1>
-                            <h6 class="font-weight-bold mb-4">SKilled Experts</h6>
+                        <div class="control-group">
+                            <input type="text" class="form-control border-0 p-4" id="subject" value="<%=data.saddress%>" name="saddress" placeholder="Originating Address"
+                                required="required" data-validation-required-message="Please enter a subject" />
+                            <p class="help-block text-danger"></p>
                         </div>
-                        <div class="col-sm-4">
-                            <h1 class="text-primary mb-2" data-toggle="counter-up">1050</h1>
-                            <h6 class="font-weight-bold mb-4">Happy Clients</h6>
-                        </div>
-                        <div class="col-sm-4">
-                            <h1 class="text-primary mb-2" data-toggle="counter-up">2500</h1>
-                            <h6 class="font-weight-bold mb-4">Complete Projects</h6>
-                        </div>
-                    </div>
+                        <div class="control-group">
+                          <input type="text" class="form-control border-0 p-4" id="subject" value="<%=data.paddress%>" name="paddress" placeholder="Destination Address"
+                              required="required" data-validation-required-message="Please enter a subject" />
+                          <p class="help-block text-danger"></p>
+                      </div>
+                     
+                     <div class="control-group">
+                      <input type="text" class="form-control border-0 p-4" id="subject" value="<%=data.pdate%>"  name="pdate" placeholder="Pick up date"
+                          required="required" data-validation-required-message="Please enter a subject" />
+                      <p class="help-block text-danger"></p>
+                     </div>
+                     <div class="control-group">
+                      <input type="text" class="form-control border-0 p-4" id="subject" name="ddate" value="<%=data.pdate %>" placeholder="Estimated delivery date"
+                          required="required" data-validation-required-message="Please enter a subject" />
+                      <p class="help-block text-danger"></p>
+                  </div>
+                  <div class="control-group">
+                    <input type="text" class="form-control border-0 p-4" id="subject" name="clocation" value="<%=data.clocation %>" placeholder="Current Location  Address"
+                        required="required" data-validation-required-message="Please enter a subject" />
+                    <p class="help-block text-danger"></p>
                 </div>
-                <div class="col-lg-5">
-                    <div class="bg-primary py-5 px-4 px-sm-5">
-                        <form class="py-5">
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0 p-4" placeholder="Your Name" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control border-0 p-4" placeholder="Your Email" required="required" />
-                            </div>
-                            <div class="form-group">
-                                <select class="custom-select border-0 px-4" style="height: 47px;">
-                                    <option selected>Select A Service</option>
-                                    <option value="1">Service 1</option>
-                                    <option value="2">Service 1</option>
-                                    <option value="3">Service 1</option>
-                                </select>
-                            </div>
-                            <div>
-                                <button class="btn btn-dark btn-block border-0 py-3" type="submit">Get A Quote</button>
-                            </div>
-                        </form>
-                    </div>
+               
+                <div class="control-group">
+                    <input type="text" class="form-control border-0 p-4" id="subject" name="tnumber" value="<%=data.tnumber %>" placeholder="Tracking/Reference"
+                        required="required" data-validation-required-message="Please enter a subject" />
+                    <p class="help-block text-danger"></p>
+                </div>
+                        <div>
+                            <button class="btn btn-primary py-3 px-4" type="submit" id="sendMessageButton">
+                                Update Details 
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Quote Request Start -->
+</div>
+<!-- Contact End -->
 
 
-
-
-
-       <!-- Footer Start -->
-       <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
         <div class="row pt-5">
             <div class="col-lg-7 col-md-6">
                 <div class="row">
                     <div class="col-md-6 mb-5">
                         <h3 class="text-primary mb-4">Get In Touch</h3>
-                        <p><i class="fa fa-map-marker-alt mr-2"></i>Suite 19, One Bonifacio High Street,
-                             Bonifacio Global City,Manila Philipines.</p>
-                        <p><i class="fa fa-phone-alt mr-2"></i>+639087922628</p>
-                        <p><i class="fa fa-envelope mr-2"></i>help@air19express.com</p>
+                        <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+                        <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
+                        <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
                         <div class="d-flex justify-content-start mt-4">
                             <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -249,7 +277,7 @@
             </div>
             <div class="col-lg-5 col-md-6 mb-5">
                 <h3 class="text-primary mb-4">Newsletter</h3>
-                <p>Subscribe for our newsletter for more  news and updates about our services.</p>
+                <p>Rebum labore lorem dolores kasd est, et ipsum amet et at kasd, ipsum sea tempor magna tempor. Accu kasd sed ea duo ipsum. Dolor duo eirmod sea justo no lorem est diam</p>
                 <div class="w-100">
                     <div class="input-group">
                         <input type="text" class="form-control border-light" style="padding: 30px;" placeholder="Your Email Address">
@@ -264,8 +292,9 @@
     <div class="container-fluid bg-dark text-white border-top py-4 px-sm-3 px-md-5" style="border-color: #3E3E4E !important;">
         <div class="row">
             <div class="col-lg-6 text-center text-md-left mb-3 mb-md-0">
-                <p class="m-0 text-white">&copy; <a href="#">AIR19EXPRESS</a>. All Rights Reserved. 
-			
+                <p class="m-0 text-white">&copy; <a href="#">AIR19EXPRESS. All Rights Reserved. 
+				
+				
                 </p>
             </div>
             <div class="col-lg-6 text-center text-md-right">
@@ -310,3 +339,4 @@
 </body>
 
 </html>
+

@@ -17,8 +17,12 @@ mongoose.connect(URL, {
 
 // Setting up the schema
 const User = new mongoose.Schema({
-  username: String
-  
+  username: String,
+  isAdmin:{
+    type: Boolean,
+    default: false
+  },
+  pin: String
 });
 
 // Setting up the passport plugin

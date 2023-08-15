@@ -50,10 +50,17 @@ res.render('index');
 });
 
 app.get('/admin', function(req, res) {
+  if(req.user && req.user.isAdmin === true){
+    console.log(req.user)
     Tracker.find()
     .then(data=>{
+      
        res.render('createtracking', {data});
     })
+  } else{
+    res.render("unauth")
+  }
+    
  
 });
 // about page
@@ -92,6 +99,18 @@ app.post('/tracking', function(req, res) {
   
 });
 
+app.get("/campgrounds/:id", function(req, res){
+ 
+  var id = req.params.id
+  
+  Tracker.findById({_id:id})
+  .then(data=>{
+   
+   res.render('edittracking', {data})
+  })
+
+})
+
 app.post('/create', function(req, res){
   let data = req.body
   
@@ -105,13 +124,20 @@ app.post('/create', function(req, res){
   })
 })
 
+//editing tracking
+
+
+
 app.get("/register", function(req, res){
   res.render("register"); 
 });
 app.post("/register", function(req, res){
-  var newUser = new User({username: req.body.username, });
+  var newUser = new User({username: req.body.username,pin:req.body.pin });
+  const AdminPin = "AC1582"
   let name = newUser.username
-  User.register(newUser, req.body.password, function(err, user){
+  if (req.body.pin == AdminPin){
+     newUser.isAdmin = true
+     User.register(newUser, req.body.password, function(err, user){
       if(err){
           console.log(err);
           return res.render("register", {error: err.message});
@@ -122,6 +148,21 @@ app.post("/register", function(req, res){
          console.log(newUser)
       });
   });
+  } else{
+    User.register(newUser, req.body.password, function(err, user){
+      if(err){
+          console.log(err);
+          return res.render("register", {error: err.message});
+      }
+      passport.authenticate("local")(req, res, function(){
+        // req.flash("success", "Successfully Signed Up! Nice to meet you " + req.body.username);
+         res.render('user', {username:name})
+         console.log(newUser)
+      });
+  });
+  }
+  
+  
 });
 //show login form
 app.get("/login", function(req, res){

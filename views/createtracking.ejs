@@ -12,7 +12,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
@@ -170,7 +170,7 @@
    
     <div class="jumbotron jumbotron-fluid mb-5">
         <div class="container text-center py-5">
-            <h1 class="text-white display-3">Track & Trace</h1>
+            <h1 class="text-white display-3">Admin Panel</h1>
             <div class="d-inline-flex align-items-center text-white">
                 <p class="m-0"><a class="text-white" href="#">Create Tracking Information For A Shipment</a></p>
                 <i class="fa fa-circle px-3"></i>
@@ -179,8 +179,54 @@
         </div>
     </div>
 
-
-  <!-- Contact Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div style="height: 50px;"></div>
+            <div class="row">
+                
+                <div class="col-lg-12">
+                    <h6 class="text-primary text-uppercase font-weight-bold"></h6>
+                    <h3 class="mb-4" style="font-weight:bold;font-size:25px;color: #1F1F2E;"">Tracking Details</h1>
+                    <div class="contact-form bg-secondary" style="padding: 30px;">
+                        <% data.forEach(function(campground){ %>
+                            
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="">
+                                        <h4>  senders name</h4>
+                                         <p><%= campground.sname + campground.rname %></p>  
+                                        <h4>  senders Address</h4>
+                                        <p><%= campground.saddress %></p> 
+                                        <h4>  senders Reference</h4>
+                                        <p><%= campground.tnumber %></p> 
+                                        <h4>Date sent</h4>
+                                        <p><%= campground.ddate %></p> 
+                                    </div>
+                                    <p>
+                                        <a  href="/campgrounds/<%= campground._id/edit %>" class="btn btn-primary">Edit</a>
+                                    </p>
+                                    <p>
+                                     <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST" class="delete-form">
+                                        <button href="/campgrounds/<%= campground._id %>" class="btn btn-primary" type="submit">Delete</button>
+                                     </form>   
+                                     
+                                 </p>
+                                </div>
+                            </div>
+                                 
+                                   
+                       
+                        
+                        <% }); %>
+                        
+                 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
+  
   <div class="container-fluid py-5">
     <div class="container">
         <div style="height: 50px;"></div>
@@ -199,7 +245,7 @@
                           <p class="help-block text-danger"></p>
                       </div>
                       <div class="control-group">
-                        <input type="text" class="form-control border-0 p-4" id="email" name="rname" placeholder="Fullname of receiver"
+                        <input type="text" class="form-control border-0 p-4" id="email"  name="rname" placeholder="Fullname of receiver"
                             required="required" data-validation-required-message="Please enter your name" />
                         <p class="help-block text-danger"></p>
                     </div>
