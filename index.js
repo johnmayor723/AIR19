@@ -4,7 +4,14 @@ var app = express();
 const Tracker = require("./models")
 const mongoose = require("mongoose")
 const path = require('path')
+
+const connectEnsureLogin = require('connect-ensure-login');
+const passport = require('passport');
+const LocalStrategy = require('passport-local')
+
+const session = require('express-session');
 //const trackRouters = require('./routes')
+const User = require('./models/user')
 
 //const DBURL = "mongodb+srv://admin:password@cluster0.gftg8.mongodb.net/?retryWrites=true&w=majority"
 const DBURL = "mongodb+srv://admin:majoje1582@cluster0.cqudxbr.mongodb.net/?retryWrites=true&w=majority"
@@ -18,6 +25,19 @@ app.set('view engine', 'ejs');
 //app.set('view', path.join(__dirnamme, '/views'))
 app.use(express.static("public"));
 app.use(express.urlencoded())
+// Set up session
+app.use(
+  session({
+    secret: "mooohdhfhgfgfggggbb55544@@!@#$$FTtvsvv4435ffv",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
 //app.use('/api/trackroutes', trackRouters)
@@ -29,11 +49,12 @@ app.get('/', function(req, res) {
 res.render('index');
 });
 
-app.get('/create', function(req, res) {
+app.get('/admin', function(req, res) {
+    Tracker.find()
+    .then(data=>{
+       res.render('createtracking', {data});
+    })
  
-    
-  //
-  res.render('createtracking');
 });
 // about page
 app.get('/about', function(req, res) {
@@ -56,8 +77,10 @@ app.post('/tracking', function(req, res) {
     if ( my_data == data.tnumber){
       res.render('tracking', {data});
       console.log(data)
+    } else {
+      res.render('error')
     }
-    res.render('error')
+   
   })
   .catch(err=>{
     console.log('err')
@@ -81,6 +104,46 @@ app.post('/create', function(req, res){
     console.log(err)
   })
 })
+
+app.get("/register", function(req, res){
+  res.render("register"); 
+});
+app.post("/register", function(req, res){
+  var newUser = new User({username: req.body.username, });
+  let name = newUser.username
+  User.register(newUser, req.body.password, function(err, user){
+      if(err){
+          console.log(err);
+          return res.render("register", {error: err.message});
+      }
+      passport.authenticate("local")(req, res, function(){
+        // req.flash("success", "Successfully Signed Up! Nice to meet you " + req.body.username);
+         res.render('user', {username:name})
+         console.log(newUser)
+      });
+  });
+});
+//show login form
+app.get("/login", function(req, res){
+  res.render("login", {page: 'login'}); 
+});
+
+//handling login logic
+app.post("/login", passport.authenticate("local", 
+   {
+       successRedirect: "/campgrounds",
+       failureRedirect: "/login",
+       failureFlash: true,
+       successFlash: 'Welcome to YelpCamp!'
+   }), function(req, res){
+});
+
+// logout route
+app.get("/logout", function(req, res){
+  req.logout();
+  req.flash("success", "See you later!");
+  res.redirect("/campgrounds");
+});
 
 
 app.listen(8080);
