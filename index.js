@@ -198,10 +198,11 @@ app.post("/login", passport.authenticate("local",
 });
 
 // logout route
-app.get("/logout", function(req, res){
-  req.logout();
-  //req.flash("success", "See you later!");
-  res.redirect("/");
+app.get('/logout', function(req, res, next) {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
 });
 
 
