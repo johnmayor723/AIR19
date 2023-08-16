@@ -123,14 +123,7 @@ app.put('/campgrounds/:id', async (req, res) => {
     console.log(newdata)
   })
   
- 
-  
-  /*await Tracker.create(data)
-  .then(newdata=>{
-    res.redirect('/admin')
-    console.log(newdata)
-  })*/
-  
+
 })
 app.delete('/campgrounds/:id', async (req, res) => {
   await Tracker.findOneAndDelete(req.params.id)
@@ -207,8 +200,8 @@ app.post("/login", passport.authenticate("local",
 // logout route
 app.get("/logout", function(req, res){
   req.logout();
-  req.flash("success", "See you later!");
-  res.redirect("/campgrounds");
+  //req.flash("success", "See you later!");
+  res.redirect("/");
 });
 
 
