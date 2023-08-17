@@ -11,6 +11,10 @@ const trackerSchema = new Schema({
   clocation: String,
   slocation:String,
   tnumber:String,
+  item1: String,
+  item2: String,
+  item3: String,
+  item4: String,
   createdAt: {
     type: Date,
     default: Date.now,

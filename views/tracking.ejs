@@ -32,10 +32,7 @@
     rel="stylesheet"
     />
     <!-- MDB -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css"
-    rel="stylesheet"
-    />
+   
     <style>
         .hh-grayBox {
 	
@@ -231,8 +228,8 @@ s0.parentNode.insertBefore(s1,s0);
 						<div class=" hh-grayBox pt45 pb20">
 							<div class="row ">
 							   <div style='margin-top:60px' class="section-tittle mb-35">
-                           <P> <span style="font-weight:bold;font-size:25px;color: #1F1F2E;">SCHEDULED DELEVERY DATE :</span><br><span style='color:#FF4800;font-size:40px;font-weight:bold;'>Pending</span> </P>
-                             <P> <span style="font-weight: bold;font-size:25px;color: #1F1F2E;">Delivery Status :</span><br><span style='color:#FF4800;font-size:40px;font-weight:bold;'>In Transit</span> </P>
+                           <P> <span style="font-weight:bold;font-size:25px;color: #1F1F2E;">SCHEDULED DELEVERY DATE :</span><br><span style='color:#f7be16;;font-size:40px;font-weight:bold;'>Pending</span> </P>
+                             <P> <span style="font-weight: bold;font-size:25px;color: #1F1F2E;">Delivery Status :</span><br><span style='color:#f7be16;;font-size:40px;font-weight:bold;'>In Transit</span> </P>
                            
                         </div>
                        
@@ -269,7 +266,7 @@ s0.parentNode.insertBefore(s1,s0);
 						</div>
 					</div>
                     <a style="background-color: #1F1F2E;color: white;border-radius: 8px;"
-                      class="btn  btn-lg" href="#" data-mdb-toggle="modal" data-mdb-target="#exampleModal">View Shipment Details</a>
+                      class="btn  btn-lg" href="#" data-mdb-toggle="modal" data-mdb-target="#exampleModal">View Shipment Status</a>
                     </div>
                     </div>
                 </div> 
@@ -287,23 +284,23 @@ s0.parentNode.insertBefore(s1,s0);
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Shipment details</h5>
+          <h5 class="modal-title" style="color: #FF4800;" id="exampleModalLabel">Shipment Status</h5>
           <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <div>
                 <ul>
-                    <li> Sender's Name : <%=data.sname%></li>
-                    <li> Recepient's Name : <%=data.rname%></li>
-                    <li> Pick up Address : <%=data.saddress%></li>
-                    <li> Destination : <%=data.raddress%></li>
-                    <li> Current Location : <%=data.clocation%></li>
-                    <li> Estimated Delivery Date : <%=data.ddate%></li>
+                    <li> <%=data.item1%></li>
+                    <li> <%=data.item2%></li>
+                    <li> <%=data.item3%></li>
+                    <li> <%=data.item4%></li>
+                   
+             
                 </ul>
             </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
+          <button style="background-color: #FF4800;color: #fff;" type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
          
         </div>
       </div>
