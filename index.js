@@ -133,7 +133,7 @@ app.delete('/campgrounds/:id', async (req, res) => {
 app.post('/create', function(req, res){
   let data = req.body
   
-  const {sname, saddress, rname, paddress, pdate, ddate, clocation, tnumber, item1, item2, item3, item4}= data
+  const {sname, saddress, rname, paddress, status, pdate, ddate, clocation, tnumber, item1, item2, item3, item4}= data
   Tracker.create(data)
   .then(data=>{
     res.redirect("/admin")
