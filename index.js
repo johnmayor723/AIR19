@@ -92,6 +92,7 @@ app.post('/tracking', function(req, res) {
   })
   .catch(err=>{
     console.log('err')
+    res.render("error")
   })
  // const my_d = "REF342800AR8"
   
