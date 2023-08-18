@@ -13,6 +13,9 @@ const session = require('express-session');
 //const trackRouters = require('./routes')
 const User = require('./models/user')
 
+const Nylas = require('nylas')
+const Nodemailer = require('nodemailer')
+
 //const DBURL = "mongodb+srv://admin:password@cluster0.gftg8.mongodb.net/?retryWrites=true&w=majority"
 const DBURL = "mongodb+srv://admin:majoje1582@cluster0.cqudxbr.mongodb.net/?retryWrites=true&w=majority"
 
@@ -39,15 +42,12 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
-
-//app.use('/api/trackroutes', trackRouters)
-// use res.render to load up an ejs view file
+//emnysmmrccehlvrj
 
 // index page
 app.get('/', function(req, res) {
   
-res.render('index');
+res.render('index', {message:""});
 });
 
 app.get('/admin', function(req, res) {
@@ -206,6 +206,74 @@ app.get('/logout', function(req, res, next) {
   });
 });
 
+//var nodemailer = require('nodemailer');
+var transport = Nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user:'mayowa.olusoriandrews@gmail.com',
+    pass:'emnysmmrccehlvrj'
+  }
+})
+/*var transport = nodemailer.createTransport({
+  host: "smtp.mailtrap.io",
+  port: 2525,
+  auth: {
+    user: "1a2b3c4d5e6f7g",
+    pass: "1a2b3c4d5e6f7g"
+  }
+});*/
 
-app.listen(8080);
-console.log('Server is listening on port 8080');
+var mailOptions = {
+  from: "support Team" ,
+  to: 'mayowaandrews723@gmail.com, mayowaolusori@gmail.com',
+  subject: 'Nice Nodemailer test',
+  text: 'Hey there, it’s our first message sent with Nodemailer ',
+  html: '<b>Hey there! </b><br> This is our first message sent with Nodemailer<br /><img src="cid:uniq-mailtrap.png" alt="mailtrap" />',
+  
+};
+
+const sender = ()=>{
+  transport.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log('Message sent: %s', info.messageId);
+  });
+}
+
+const sendEmail = (name, sender, content) => {
+  var mailOptions = {
+    from: "support Team" ,
+    to: 'mayowaandrews723@gmail.com, helper@air19express.com',
+    subject: `senders name: ${name},  senders email: ${sender},`,
+    text: `message :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::senders name:
+     ${name},  senders email: ${sender},content:  ${content}`,
+    html: '',
+    
+  };
+  
+  
+    transport.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return console.log(error);
+      }
+      console.log('Message sent: %s', info.messageId);
+    });
+  
+
+}
+app.post('/quote', (req, res) => {
+  var name = req.body.name
+  //var subject = req.body.subject
+  var sender = req.body.email
+  var content =req.body.content
+  sendEmail(name, sender, content)
+  res.render('index', {message:"Enquiry has been sent. Our Customer representative will respond soon."})
+  console.log(`Message sent. contents is ${content}`)
+})
+
+
+app.listen(8080, function(){
+
+  console.log('Server is listening on port 8080');
+});
