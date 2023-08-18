@@ -50,7 +50,7 @@ app.get('/', function(req, res) {
 res.render('index', {message:""});
 });
 
-app.get('/admin', function(req, res) {
+/*app.get('/admin', function(req, res) {
   if(req.user && req.user.isAdmin === true){
     console.log(req.user)
     Tracker.find()
@@ -62,6 +62,16 @@ app.get('/admin', function(req, res) {
     res.render("unauth")
   }
     
+ 
+});*/
+app.get('/admin', function(req, res) {
+ 
+    Tracker.find()
+    .then(data=>{
+      
+       res.render('createtracking', {data});
+    })
+ 
  
 });
 // about page
@@ -195,7 +205,10 @@ app.post("/login", passport.authenticate("local",
        successRedirect: "/",
        failureRedirect: "/login",
        
-   }), function(req, res){
+   }),
+    function(req, res){
+      i
+
 });
 
 // logout route
