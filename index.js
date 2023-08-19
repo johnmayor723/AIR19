@@ -66,14 +66,14 @@ res.render('index', {message:""});
 });*/
 app.get('/admin', function(req, res) {
  
-    Tracker.find()
-    .then(data=>{
+    
       
-       res.render('createtracking', {data});
-    })
+       res.render('admin');
+    
  
  
 });
+
 app.post('/admin', function(req, res){
   const {email, password} = req.body
   let m_email = 'help@air19express.com'
@@ -151,7 +151,10 @@ app.put('/campgrounds/:id', async (req, res) => {
 app.delete('/campgrounds/:id', async (req, res) => {
   await Tracker.findOneAndDelete(req.params.id)
 
-  res.redirect('/admin')
+  Tracker.find()
+    .then(data=>{
+      res.render('createtracking', {data});
+    })
 })
 app.post('/create', function(req, res){
   let data = req.body
@@ -159,7 +162,7 @@ app.post('/create', function(req, res){
   const {sname, saddress, rname, paddress, status, pdate, ddate, clocation, tnumber, item1, item2, item3, item4}= data
   Tracker.create(data)
   .then(data=>{
-    res.redirect("/admin")
+    res.render('createtracking', {data});
   })
   .catch(err=>{
     console.log(err)
