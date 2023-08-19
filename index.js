@@ -74,6 +74,18 @@ app.get('/admin', function(req, res) {
  
  
 });
+app.post('/admin', function(req, res){
+  const {email, password} = req.body
+  let m_email = 'help@air19express.com'
+  let m_password = "password@123"
+  if(email == m_email && password == m_password){
+    Tracker.find()
+    .then(data=>{
+      res.render('createtracking', {data});
+    })
+    res.render('index')
+  }
+})
 // about page
 app.get('/about', function(req, res) {
   res.render('about');
@@ -130,7 +142,7 @@ app.put('/campgrounds/:id', async (req, res) => {
   console.log(data)
   await Tracker.findByIdAndUpdate(id, {...data})
   .then(newdata=>{
-    res.redirect('/admin')
+    res.render('createtracking', {data:newdata})
     console.log(newdata)
   })
   
