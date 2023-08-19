@@ -76,15 +76,21 @@ app.get('/admin', function(req, res) {
 
 app.post('/admin', function(req, res){
   const {email, password} = req.body
+  console.log(req.body)
   let m_email = 'help@air19express.com'
   let m_password = "password@123"
-  if(email == m_email && password == m_password){
+  if(email === m_email && password === m_password){
+    console.log('match')
     Tracker.find()
     .then(data=>{
       res.render('createtracking', {data});
     })
-    res.render('index')
+    
+  } else {
+    console.log('no match')
+    res.render('index', {message:''})
   }
+  
 })
 // about page
 app.get('/about', function(req, res) {
@@ -136,14 +142,14 @@ app.get("/campgrounds/:id", function(req, res){
 })
 app.put('/campgrounds/:id', async (req, res) => {
   const {id} = req.params;
-  const rid ={_id:id}
+  
   let data = req.body
   
   console.log(data)
   await Tracker.findByIdAndUpdate(id, {...data})
-  .then(newdata=>{
-    res.render('createtracking', {data:newdata})
-    console.log(newdata)
+  Tracker.find()
+  .then(data=>{
+    res.render('createtracking', {data});
   })
   
 
@@ -161,11 +167,13 @@ app.post('/create', function(req, res){
   
   const {sname, saddress, rname, paddress, status, pdate, ddate, clocation, tnumber, item1, item2, item3, item4}= data
   Tracker.create(data)
+  Tracker.find()
   .then(data=>{
     res.render('createtracking', {data});
   })
   .catch(err=>{
     console.log(err)
+     res.render('admin')
   })
 })
 
