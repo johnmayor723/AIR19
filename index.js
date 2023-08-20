@@ -114,13 +114,13 @@ app.post('/tracking', function(req, res) {
       res.render('tracking', {data});
       console.log(data)
     } else {
-      res.render('error')
+      res.render('error', {data:'no data'})
     }
    
   })
   .catch(err=>{
     console.log('err')
-    res.render("error")
+    res.render("error", {data:'no data'})
   })
  // const my_d = "REF342800AR8"
   
