@@ -235,24 +235,24 @@
                     <!-- about-img -->
                     <div style="margin-top:120px;">
                     <div class="container">
-                        <P> <span style="font-weight:bold;font-size:19px;color: #1F1F2E;">Tracking id : <%=data.tnumber %></span>
-                            <span style='font-size:19px;'><%= data.tracking%></span> </P>
+                        <P> <span style="font-weight:bold;font-size:19px;color: #1F1F2E;">Tracking id : <%=data %></span>
+                            <span style='font-size:19px;'><%= data%></span> </P>
                              
                       <div class="row">
 						<div class="col-12 col-md-10 hh-grayBox pt45 pb20">
 							<div class="row justify-content-between">
 								<div class="order-tracking completed">
 									<span class="is-complete"></span>
-									<p>Ordered<br><span><%=data.pdate%></span></p>
+									<p>Ordered<br><span><%=data%></span></p>
 								</div>
 								<div class="order-tracking completed">
 									<span class="is-complete"></span>
-									<p>Shipped<br><span><%=data.ddate %></span></p>
+									<p>Shipped<br><span><%=data %></span></p>
 								</div>
                                 
 								<div class="order-tracking">
 									<span class="is-complete"></span>
-									<p>Delivered<br><span><%=data.ddate %></span></p>
+									<p>Delivered<br><span><%=data %></span></p>
 								</div>
 							</div>
 						</div>
@@ -282,12 +282,12 @@
         <div class="modal-body">
             <div>
                 <ul>
-                    <li> Sender's Name : <%=data.sname%></li>
-                    <li> Recepient's Name : <%=data.rname%></li>
-                    <li> Pick up Address : <%=data.saddress%></li>
-                    <li> Destination : <%=data.raddress%></li>
-                    <li> Current Location : <%=data.clocation%></li>
-                    <li> Estimated Delivery Date : <%=data.ddate%></li>
+                    <li> Sender's Name : <%=data%></li>
+                    <li> Recepient's Name : <%=data%></li>
+                    <li> Pick up Address : <%=data%></li>
+                    <li> Destination : <%=data%></li>
+                    <li> Current Location : <%=data%></li>
+                    <li> Estimated Delivery Date : <%=data%></li>
                 </ul>
             </div>
         </div>
