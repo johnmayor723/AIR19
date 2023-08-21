@@ -244,26 +244,50 @@ s0.parentNode.insertBefore(s1,s0);
                     <div style="margin-top:120px;">
                     <div class="container">
                         <P> <span style="font-weight:bold;font-size:19px;color: #1F1F2E;">Tracking id : <%=data.tnumber %></span>
-                            <span style='font-size:19px;'><%= data.tracking%></span> </P>
+                            <span style='font-size:19px;'><%= data.tracking %></span> </P>
                              
                       <div class="row">
-						<div class="col-12 col-md-10 hh-grayBox pt45 pb20">
-							<div class="row justify-content-between">
-								<div class="order-tracking completed">
-									<span class="is-complete"></span>
-									<p>Ordered<br><span><%=data.pdate%></span></p>
-								</div>
-								<div class="order-tracking completed">
-									<span class="is-complete"></span>
-									<p>Shipped<br><span><%=data.ddate %></span></p>
-								</div>
-                                
-								<div class="order-tracking">
-									<span class="is-complete"></span>
-									<p>Delivered<br><span><%=data.ddate %></span></p>
-								</div>
-							</div>
-						</div>
+                             <% if(status === 'delivered'){ %>
+
+                            <div class="col-12 col-md-10 hh-grayBox pt45 pb20">
+                                <div class="row justify-content-between">
+                                    <div class="order-tracking completed">
+                                        <span class="is-complete"></span>
+                                        <p>Ordered<br><span><%=data.pdate %></span></p>
+                                    </div>
+                                    <div class="order-tracking completed">
+                                        <span class="is-complete"></span>
+                                        <p>Shipped<br><span><%=data.ddate %></span></p>
+                                    </div>
+                                    
+                                    <div class="order-tracking completed">
+                                        <span class="is-complete"></span>
+                                        <p>Delivered<br><span><%=data.ddate %></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                           <%} else { %>
+                               <div class="col-12 col-md-10 hh-grayBox pt45 pb20">
+                                <div class="row justify-content-between">
+                                    <div class="order-tracking completed">
+                                        <span class="is-complete"></span>
+                                        <p>Ordered<br><span><%=data.pdate %></span></p>
+                                    </div>
+                                    <div class="order-tracking completed">
+                                        <span class="is-complete"></span>
+                                        <p>Shipped<br><span><%=data.ddate %></span></p>
+                                    </div>
+                                    
+                                    <div class="order-tracking ">
+                                        <span class="is-complete"></span>
+                                        <p>Delivered<br><span><%=data.ddate %></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                       <% } %>
+                       
+						
 					</div>
                     <a style="background-color: #1F1F2E;color: white;border-radius: 8px;"
                       class="btn  btn-lg" href="#" data-mdb-toggle="modal" data-mdb-target="#exampleModal">View Shipment Status</a>
@@ -290,10 +314,21 @@ s0.parentNode.insertBefore(s1,s0);
         <div class="modal-body">
             <div>
                 <ul>
-                    <li> <%=data.item1%></li>
-                    <li> <%=data.item2%></li>
-                    <li> <%=data.item3%></li>
-                    <li> <%=data.item4%></li>
+                    <ul>
+                        <li>From <%=data.sname%></li>
+                        <li>To <%=data.rname%></li>
+                        <li>Consignment shipped from <%=data.saddress%></li>
+                        <li>Shipping To <%=data.paddress%></li>
+                        <li>Dipatched on <%=data.pdate%></li>
+                        <li>Estimated to arrive destination on  <%=data.ddate%></li>
+                        <li> <%=data.item1%></li>
+                        <li> <%=data.item1%></li>
+                        <li> <%=data.item2%></li>
+                        <li> <%=data.item3%></li>
+                        <li> <%=data.item4%></li>
+                       
+                 
+                    </ul>
                    
              
                 </ul>

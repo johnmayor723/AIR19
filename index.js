@@ -110,16 +110,24 @@ app.post('/tracking', function(req, res) {
   var my_data = req.body.trackingid
   Tracker.findOne({tnumber:my_data})
   .then(data=>{
-    if ( my_data == data.tnumber){
-      res.render('tracking', {data});
-      console.log(data)
-    } else {
-      res.render('error', {data:'no data'})
-    }
-   
+    let status = data.status
+    status.toLowerCase()
+  if( my_data === data.tnumber && status === "delivered"){
+    res.render('tracking', {data, status: 'delivered'});
+    console.log(data)
+  } 
+  else if (my_data === data.tnumber && status !== "delivered") {
+    res.render('tracking', {data, status:'not delivered'})
+    console.log(data)
+  } else {
+    res.render('error', {data: 'no data'})
+  }
+
   })
+
   .catch(err=>{
     console.log('err')
+    console.log(err)
     res.render("error", {data:'no data'})
   })
  // const my_d = "REF342800AR8"
