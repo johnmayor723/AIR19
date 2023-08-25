@@ -46,8 +46,8 @@ passport.deserializeUser(User.deserializeUser());
 
 // index page
 app.get('/', function(req, res) {
-  
-res.render('index', {message:""});
+   res.send('app turned off')
+//res.render('index', {message:""});
 });
 
 /*app.get('/admin', function(req, res) {
