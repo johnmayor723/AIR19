@@ -112,11 +112,11 @@ app.post('/tracking', function(req, res) {
   .then(data=>{
     let status = data.status
     status.toLowerCase()
-  if( my_data === data.tnumber && status === "delivered"){
-    res.render('tracking', {data, status: 'delivered'});
+  if( my_data === data.tnumber && status === "Delivered"){
+    res.render('tracking', {data, status: 'Delivered'});
     console.log(data)
   } 
-  else if (my_data === data.tnumber && status !== "delivered") {
+  else if (my_data === data.tnumber && status !== "Delivered") {
     res.render('tracking', {data, status})
     console.log(data)
   } else {
