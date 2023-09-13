@@ -75,7 +75,7 @@
     line-height: 45px;
     display: block;
     font-size: 20px;
-    background: #C5CAE9;
+    background: #f7be16;
     border-radius: 50%;
     margin: auto;
     padding: 0px;
@@ -85,7 +85,7 @@
     content: '';
     width: 100%;
     height: 12px;
-    background: #C5CAE9;
+    background: #f7be16;
     position: absolute;
     left: 0;
     top: 16px;
@@ -116,7 +116,7 @@
 }
 /*Color number of the step and the connector before it*/
 #progressbar li.active:before, #progressbar li.active:after {
-    background: #651FFF;
+    background:  #27aa80;
 }
 #progressbar li.active:before {
     font-family: FontAwesome;
@@ -342,16 +342,17 @@ s0.parentNode.insertBefore(s1,s0);
 <div class="col-lg-6 col-sm-12">
 <div class="container px-1 px-md-4 py-5 mx-auto">
     <div class="card">
-        <% if(status === 'Delivered'){ %>
+       
         <div class="row d-flex justify-content-between px-3 top">
             <div class="d-flex">
-                <h5>ORDER <span class="text-primary font-weight-bold"><%= data.id %></span></h5>
+                <h5><span class="text-primary font-weight-bold">ORDER</span><%= data.id %></h5>
             </div>
-            <div class="d-flex flex-column text-sm-right">
-                <p class="mb-0">Expected Arrival <span><%=data.ddate%></data></span></p>
-                <p>REF <span class="font-weight-bold"><%= data.tnumber %></span></p>
+            <div class="d-flex">
+                <h5><span class="text-primary font-weight-bold">TRACKING ID</span><%= data.tnumber %></h5>
             </div>
+           
         </div>
+         <% if(status === 'Delivered') { %>
         <!-- Add class 'active' to progress -->
         <div class="row d-flex justify-content-center">
             <div class="col-12">
@@ -365,7 +366,7 @@ s0.parentNode.insertBefore(s1,s0);
         </div>
         <div class="row justify-content-between top">
             <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                <img class="icon" style="height:" src="https://i.imgur.com/9nnc9Et.png">
+                <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
                 <div class="d-flex flex-column">
                     <p class="font-weight-bold">Processed</p>
                 </div>
@@ -379,7 +380,7 @@ s0.parentNode.insertBefore(s1,s0);
             <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
                 <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                 <div class="d-flex flex-column">
-                    <p class="font-weight-bold"><%=data.item2%></p>
+                    <p class="font-weight-bold">En Route</p>
                 </div>
             </div>
             <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
@@ -389,30 +390,21 @@ s0.parentNode.insertBefore(s1,s0);
                 </div>
             </div>
         </div>
-        <%} else if(status === 'Shipped') { %>
-            <div class="row d-flex justify-content-between px-3 top">
-                <div class="d-flex">
-                    <h5>ORDER <span class="text-primary font-weight-bold"><%= data.id %></span></h5>
-                </div>
-                <div class="d-flex flex-column text-sm-right">
-                    <p class="mb-0">Expected Arrival <span><%=data.ddate%></data></span></p>
-                    <p>REF <span class="font-weight-bold"><%= data.tnumber %></span></p>
-                </div>
-            </div>
+        <% else if (status === 'En Route') { %>
             <!-- Add class 'active' to progress -->
             <div class="row d-flex justify-content-center">
                 <div class="col-12">
                 <ul id="progressbar" class="text-center">
                     <li class="active step0"></li>
                     <li class="active step0"></li>
-                    <li class=" step0"></li>
+                    <li class="active step0"></li>
                     <li class=" step0"></li>
                 </ul>
                 </div>
             </div>
             <div class="row justify-content-between top">
                 <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                    <img class="icon" style="height:" src="https://i.imgur.com/9nnc9Et.png">
+                    <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
                     <div class="d-flex flex-column">
                         <p class="font-weight-bold">Processed</p>
                     </div>
@@ -426,7 +418,7 @@ s0.parentNode.insertBefore(s1,s0);
                 <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
                     <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                     <div class="d-flex flex-column">
-                        <p class="font-weight-bold"><%=data.item2%></p>
+                        <p class="font-weight-bold">En Route</p>
                     </div>
                 </div>
                 <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
@@ -436,67 +428,55 @@ s0.parentNode.insertBefore(s1,s0);
                     </div>
                 </div>
             </div>
-            <%} else  { %>
-                <div class="row d-flex justify-content-between px-3 top">
-                    <div class="d-flex">
-                        <h5>ORDER <span class="text-primary font-weight-bold"><%= data.id %></span></h5>
-                    </div>
-                    <div class="d-flex flex-column text-sm-right">
-                        <p class="mb-0">Expected Arrival <span><%=data.ddate%></data></span></p>
-                        <p>REF <span class="font-weight-bold"><%= data.tnumber %></span></p>
+        <%} else { %>
+            
+            <!-- Add class 'active' to progress -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-12">
+                <ul id="progressbar" class="text-center">
+                    <li class="active step0"></li>
+                    <li class="active step0"></li>
+                    <li class=" step0"></li>
+                    <li class=" step0"></li>
+                </ul>
+                </div>
+            </div>
+            <div class="row justify-content-between top">
+                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                    <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
+                    <div class="d-flex flex-column">
+                        <p class="font-weight-bold">Processed</p>
                     </div>
                 </div>
-                <!-- Add class 'active' to progress -->
-                <div class="row d-flex justify-content-center">
-                    <div class="col-12">
-                    <ul id="progressbar" class="text-center">
-                        <li class="active step0"></li>
-                        <li class=" step0"></li>
-                        <li class=" step0"></li>
-                        <li class=" step0"></li>
-                    </ul>
+                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                    <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                    <div class="d-flex flex-column">
+                        <p class="font-weight-bold">Shipped</p>
                     </div>
                 </div>
-                <div class="row justify-content-between top">
-                    <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                        <img class="icon" style="height:" src="https://i.imgur.com/9nnc9Et.png">
-                        <div class="d-flex flex-column">
-                            <p class="font-weight-bold">Processed</p>
-                        </div>
-                    </div>
-                    <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                        <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
-                        <div class="d-flex flex-column">
-                            <p class="font-weight-bold">Shipped</p>
-                        </div>
-                    </div>
-                    <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                        <img class="icon" src="https://i.imgur.com/TkPm63y.png">
-                        <div class="d-flex flex-column">
-                            <p class="font-weight-bold"><%=data.item2%></p>
-                        </div>
-                    </div>
-                    <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                        <img class="icon" src="https://i.imgur.com/HdsziHP.png">
-                        <div class="d-flex flex-column">
-                            <p class="font-weight-bold">Arrived</p>
-                        </div>
+                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                    <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                    <div class="d-flex flex-column">
+                        <p class="font-weight-bold">En Route</p>
                     </div>
                 </div>
-    </div>
-    </div>
-</div>
-                    <a style="background-color: #1F1F2E;color: white;border-radius: 8px;"
-                      class="btn  btn-lg" href="#" data-mdb-toggle="modal" data-mdb-target="#exampleModal">View Shipment Status</a>
+                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                    <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                    <div class="d-flex flex-column">
+                        <p class="font-weight-bold">Arrived</p>
                     </div>
-                    </div>
-                </div> 
-                <div style="height: 50px;"></div>
-
+                </div>
             </div>
             <% } %>
-        </div>
-    </div>
+            <div style="padding: 20px;">
+                    <a style="background-color: #1F1F2E;color: white;border-radius: 8px;"
+                    class="btn  btn-lg" href="#" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+                    View Shipment Status</a>
+                </div>
+                </div>
+                </div>
+                </div>
+            </div>
 
      <!-- Button trigger modal -->
 
@@ -520,8 +500,7 @@ s0.parentNode.insertBefore(s1,s0);
                         <li>Estimated to arrive destination on  <%=data.ddate%></li>
                         <li> <%=data.item1%></li>
                         <li> <%=data.item2%></li>
-                        <li> <%=data.item3%></li>
-                        <li> <%=data.item4%></li>                 
+                                        
                     </ul>             
 
             </div>

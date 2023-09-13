@@ -113,11 +113,11 @@ app.post('/tracking', function(req, res) {
     let status = data.status
     //status.toLowerCase()
   if( my_data === data.tnumber && status === "Delivered"){
-    res.render('blog', {data, status: 'Delivered'});
+    res.render('tracking', {data, status: 'Delivered'});
     console.log(data)
   } 
   else if (my_data === data.tnumber && status !== "Delivered") {
-    res.render('blog', {data, status})
+    res.render('tracking', {data, status})
     console.log(data)
   } else {
     res.render('error', {data: 'no data'})
