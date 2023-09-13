@@ -111,13 +111,20 @@ app.post('/tracking', function(req, res) {
   Tracker.findOne({tnumber:my_data})
   .then(data=>{
     let status = data.status
+    let status2 = data.status2
     //status.toLowerCase()
   if( my_data === data.tnumber && status === "Delivered"){
-    res.render('tracking', {data, status: 'Delivered'});
+   
+    res.render('tracking', {data,status2, status: 'Delivered'});
     console.log(data)
   } 
   else if (my_data === data.tnumber && status !== "Delivered") {
-    res.render('tracking', {data, status})
+    if (!data.status2){
+      let status2 = 'None'
+      res.render('tracking', {data, status, status2})
+    console.log(data)
+    }
+    res.render('tracking', {data, status, status2})
     console.log(data)
   } else {
     res.render('error', {data: 'no data'})

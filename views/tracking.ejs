@@ -328,9 +328,16 @@ s0.parentNode.insertBefore(s1,s0);
                        <div class="row">
 						<div class=" hh-grayBox pt45 pb20">
 							<div class="row ">
-							   <div style='margin-top:60px' class="section-tittle mb-35">
+							 <div style='margin-top:60px' class="section-tittle mb-35">
                            <P> <span style="font-weight:bold;font-size:25px;color: #FF4800;">SCHEDULED DELEVERY DATE :</span><br><span style='color:rgb(48, 46, 46);;font-size:24px;font-weight:;'><%=data.ddate %></span> </P>
-                             <P> <span style="font-weight: bold;font-size:25px;color: #FF4800;">Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:24px;font-weight:;'><%=data.status %></span> </P>
+                           <% if (status2 !== 'None'){%>
+                            <P> <span style="font-weight: bold;font-size:25px;color: #FF4800;">
+                                Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:24px;font-weight:;'>
+                                    Returned To Shipper</span> </P>
+                        
+                          <%} else {%>
+                            <P> <span style="font-weight: bold;font-size:25px;color: #FF4800;">Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:24px;font-weight:;'><%=data.status %></span> </P>
+                           <%}%>
                            
                         </div>
                        
@@ -353,164 +360,326 @@ s0.parentNode.insertBefore(s1,s0);
                                         <h5><span class="text-primary font-weight-bold">ORDER: </span><%= data.id %></h5>
                                     </div>
                                     <div class="d-flex">
-                                        <h5><span class="text-primary font-weight-bold">TRACKING ID: </span><%= data.tnumber %></h5>
+                                        <h5><span class="text-primary font-weight-bold">TRACKING NUMBER: </span><%= data.tnumber %></h5>
                                     </div>
                                    
                                 </div>
-                             <% if(status === 'Delivered'){ %>
+                                <%  if(status2 !== 'None'){  %>
+                                  <div>
+                                    <% if(status2 === 'Returned to shipper'){ %>
 
-                            <!-- Add class 'active' to progress -->
-          <div class="row d-flex justify-content-center">
-            <div class="col-12">
-            <ul id="progressbar" class="text-center">
-                <li class="active step0"></li>
-                <li class="active step0"></li>
-                <li class="active step0"></li>
-                <li class="active step0"></li>
-            </ul>
-            </div>
-        </div>
-        <div class="row justify-content-between top">
-            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
-                <div class="d-flex flex-column">
-                    <p class="font-weight-bold">Processed</p>
-                </div>
-            </div>
-            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
-                <div class="d-flex flex-column">
-                    <p class="font-weight-bold">Shipped</p>
-                </div>
-            </div>
-            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                <img class="icon" src="https://i.imgur.com/TkPm63y.png">
-                <div class="d-flex flex-column">
-                    <p class="font-weight-bold">En Route</p>
-                </div>
-            </div>
-            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                <img class="icon" src="https://i.imgur.com/HdsziHP.png">
-                <div class="d-flex flex-column">
-                    <p class="font-weight-bold">Arrived</p>
-                </div>
-            </div>
-        </div>
+                                        <!-- Add class 'active' to progress -->
+                      <div class="row d-flex justify-content-center">
+                        <div class="col-12">
+                        <ul id="progressbar" class="text-center">
+                            <li class="active step0"></li>
+                            <li class=" step0"></li>
+                            <li class=" step0"></li>
+                            <li class=" step0"></li>
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between top">
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Processed<br>To Return<br>To Shipper</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Shipped</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">En Route</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Arrived</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <% } else if (status2 === "Processed"){ %>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-12">
+                        <ul id="progressbar" class="text-center">
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                            <li class=" step0"></li>
+                            <li class=" step0"></li>
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between top">
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Processed<br>To Return<br>To Shipper</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Shipped</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">En Route</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Arrived</p>
+                            </div>
+                        </div>
+                    </div>
+                    <%} else if(status2 === 'Shipped') { %>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-12">
+                            <ul id="progressbar" class="text-center">
+                                <li class="active step0"></li>
+                                <li class="active step0"></li>
+                                <li class="active step0"></li>
+                                <li class=" step0"></li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between top">
+                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
+                                <div class="d-flex flex-column">
+                                    <p class="font-weight-bold">Processed<br>To Return<br>To Shipper</p>
+                                </div>
+                            </div>
+                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                                <div class="d-flex flex-column">
+                                    <p class="font-weight-bold">Shipped</p>
+                                </div>
+                            </div>
+                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                                <div class="d-flex flex-column">
+                                    <p class="font-weight-bold">En Route</p>
+                                </div>
+                            </div>
+                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                                <div class="d-flex flex-column">
+                                    <p class="font-weight-bold">Arrived</p>
+                                </div>
+                            </div>
+                        </div>                   
+                         <%} else  { %>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-12">
+                                <ul id="progressbar" class="text-center">
+                                    <li class="active step0"></li>
+                                    <li class="active step0"></li>
+                                    <li class="active step0"></li>
+                                    <li class="active step0"></li>
+                                </ul>
+                                </div>
+                            </div>
+                            <div class="row justify-content-between top">
+                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                    <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
+                                    <div class="d-flex flex-column">
+                                        <p class="font-weight-bold">Processed<br>To Return<br>To Shipper</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                    <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                                    <div class="d-flex flex-column">
+                                        <p class="font-weight-bold">Shipped</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                    <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                                    <div class="d-flex flex-column">
+                                        <p class="font-weight-bold">En Route</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                    <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                                    <div class="d-flex flex-column">
+                                        <p class="font-weight-bold">Arrived</p>
+                                    </div>
+                                </div>
+                            </div>                 
+                                        
+                         <% } %>
+                                   
+                                  </div>
+                                <% } else { %>
+                                 <div>
+                                    <% if(status === 'Delivered'){ %>
 
-        <% } else if (status === "En Route"){ %>
-        <div class="row d-flex justify-content-center">
-            <div class="col-12">
-            <ul id="progressbar" class="text-center">
-                <li class="active step0"></li>
-                <li class="active step0"></li>
-                <li class="active step0"></li>
-                <li class=" step0"></li>
-            </ul>
-            </div>
-        </div>
-        <div class="row justify-content-between top">
-            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
-                <div class="d-flex flex-column">
-                    <p class="font-weight-bold">Processed</p>
-                </div>
-            </div>
-            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
-                <div class="d-flex flex-column">
-                    <p class="font-weight-bold">Shipped</p>
-                </div>
-            </div>
-            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                <img class="icon" src="https://i.imgur.com/TkPm63y.png">
-                <div class="d-flex flex-column">
-                    <p class="font-weight-bold">En Route</p>
-                </div>
-            </div>
-            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                <img class="icon" src="https://i.imgur.com/HdsziHP.png">
-                <div class="d-flex flex-column">
-                    <p class="font-weight-bold">Arrived</p>
-                </div>
-            </div>
-        </div>
-        <%} else if(status === 'Shipped') { %>
-            <div class="row d-flex justify-content-center">
-                <div class="col-12">
-                <ul id="progressbar" class="text-center">
-                    <li class="active step0"></li>
-                    <li class="active step0"></li>
-                    <li class=" step0"></li>
-                    <li class=" step0"></li>
-                </ul>
-                </div>
-            </div>
-            <div class="row justify-content-between top">
-                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                    <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
-                    <div class="d-flex flex-column">
-                        <p class="font-weight-bold">Processed</p>
-                    </div>
-                </div>
-                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                    <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
-                    <div class="d-flex flex-column">
-                        <p class="font-weight-bold">Shipped</p>
-                    </div>
-                </div>
-                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                    <img class="icon" src="https://i.imgur.com/TkPm63y.png">
-                    <div class="d-flex flex-column">
-                        <p class="font-weight-bold">En Route</p>
-                    </div>
-                </div>
-                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                    <img class="icon" src="https://i.imgur.com/HdsziHP.png">
-                    <div class="d-flex flex-column">
-                        <p class="font-weight-bold">Arrived</p>
-                    </div>
-                </div>
-            </div>                   
-             <%} else  { %>
-                <div class="row d-flex justify-content-center">
-                    <div class="col-12">
-                    <ul id="progressbar" class="text-center">
-                        <li class="active step0"></li>
-                        <li class=" step0"></li>
-                        <li class=" step0"></li>
-                        <li class=" step0"></li>
-                    </ul>
-                    </div>
-                </div>
-                <div class="row justify-content-between top">
-                    <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                        <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
-                        <div class="d-flex flex-column">
-                            <p class="font-weight-bold">Processed</p>
+                                        <!-- Add class 'active' to progress -->
+                      <div class="row d-flex justify-content-center">
+                        <div class="col-12">
+                        <ul id="progressbar" class="text-center">
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                        </ul>
                         </div>
                     </div>
-                    <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                        <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
-                        <div class="d-flex flex-column">
-                            <p class="font-weight-bold">Shipped</p>
+                    <div class="row justify-content-between top">
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Processed</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Shipped</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">En Route</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Arrived</p>
+                            </div>
                         </div>
                     </div>
-                    <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                        <img class="icon" src="https://i.imgur.com/TkPm63y.png">
-                        <div class="d-flex flex-column">
-                            <p class="font-weight-bold">En Route</p>
+            
+                    <% } else if (status === "En Route"){ %>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-12">
+                        <ul id="progressbar" class="text-center">
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                            <li class=" step0"></li>
+                        </ul>
                         </div>
                     </div>
-                    <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
-                        <img class="icon" src="https://i.imgur.com/HdsziHP.png">
-                        <div class="d-flex flex-column">
-                            <p class="font-weight-bold">Arrived</p>
+                    <div class="row justify-content-between top">
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Processed</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Shipped</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">En Route</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Arrived</p>
+                            </div>
                         </div>
                     </div>
-                </div>                 
-                            
-             <% } %>
-                       
+                    <%} else if(status === 'Shipped') { %>
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-12">
+                            <ul id="progressbar" class="text-center">
+                                <li class="active step0"></li>
+                                <li class="active step0"></li>
+                                <li class=" step0"></li>
+                                <li class=" step0"></li>
+                            </ul>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between top">
+                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
+                                <div class="d-flex flex-column">
+                                    <p class="font-weight-bold">Processed</p>
+                                </div>
+                            </div>
+                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                                <div class="d-flex flex-column">
+                                    <p class="font-weight-bold">Shipped</p>
+                                </div>
+                            </div>
+                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                                <div class="d-flex flex-column">
+                                    <p class="font-weight-bold">En Route</p>
+                                </div>
+                            </div>
+                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                                <div class="d-flex flex-column">
+                                    <p class="font-weight-bold">Arrived</p>
+                                </div>
+                            </div>
+                        </div>                   
+                         <% } else  { %>
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-12">
+                                <ul id="progressbar" class="text-center">
+                                    <li class="active step0"></li>
+                                    <li class=" step0"></li>
+                                    <li class=" step0"></li>
+                                    <li class=" step0"></li>
+                                </ul>
+                                </div>
+                            </div>
+                            <div class="row justify-content-between top">
+                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                    <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
+                                    <div class="d-flex flex-column">
+                                        <p class="font-weight-bold">Processed</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                    <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                                    <div class="d-flex flex-column">
+                                        <p class="font-weight-bold">Shipped</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                    <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                                    <div class="d-flex flex-column">
+                                        <p class="font-weight-bold">En Route</p>
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                    <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                                    <div class="d-flex flex-column">
+                                        <p class="font-weight-bold">Arrived</p>
+                                    </div>
+                                </div>
+                            </div>                 
+                                        
+                         <% } %>
+                                   
+                                 </div>
+                                <% } %>
+                             
 						 <div style="padding: 20px;">
                     <a style="background-color: #1F1F2E;color: white;border-radius: 8px;"
                     class="btn  btn-lg" href="#" data-mdb-toggle="modal" data-mdb-target="#exampleModal">
@@ -548,8 +717,13 @@ s0.parentNode.insertBefore(s1,s0);
                         <li>Shipping To <%=data.paddress%></li>
                         <li>Dipatched on <%=data.pdate%></li>
                         <li>Estimated to arrive destination on  <%=data.ddate%></li>
-                        <li> <%=data.item1%></li>
-                        <li> <%=data.item2%></li>
+                        
+                        <% if(data.status2){%>
+                         <li>data.status2</li>   
+                          <%} else {  
+                            <li> <%=data.item1%></li>
+                            <li> <%=data.item2%></li>
+                        <%}%>
                                         
                     </ul>             
                 

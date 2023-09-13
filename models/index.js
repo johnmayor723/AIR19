@@ -9,6 +9,7 @@ const trackerSchema = new Schema({
   pdate: String,
   ddate: String,
   status: String,
+  status2: String,
   clocation: String,
   slocation:String,
   tnumber:String,
