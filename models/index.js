@@ -8,6 +8,7 @@ const trackerSchema = new Schema({
   paddress: String,
   pdate: String,
   ddate: String,
+  returndate: String,
   status: String,
   status2: String,
   clocation: String,

@@ -239,9 +239,15 @@
                     <p class="help-block text-danger"></p>
                 </div>
                 <div class="control-group">
+                    <input type="text" class="form-control border-0 p-4" id="subject" value="<%=data.returndate%>"
+                      name="returndate" placeholder="Enter return date"
+                        required="required" data-validation-required-message="Please enter a subject" />
+                    <p class="help-block text-danger"></p>
+                   </div>
+                <div class="control-group">
                     <input type="text" class="form-control border-0 p-4" id="subject" name="status2" 
                     value="<%=data.status2 %>" placeholder="status2: enter either None, Returned to shipper ,
-                     Processed , Shipped or Delivered"
+                     Processed , Out for delivery, or Delivered"
                         required="required" data-validation-required-message="Please enter a subject" />
                     <p class="help-block text-danger"></p>
                 </div>
