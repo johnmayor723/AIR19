@@ -135,6 +135,11 @@
         width: 50%;
     }
 }
+@media screen and (max-width: 550px) {
+    .icon-content {
+        width: 20%;
+    }
+}
         .hh-grayBox {
 	
 	margin-bottom: 20px;
@@ -330,7 +335,7 @@ s0.parentNode.insertBefore(s1,s0);
 							<div class="row ">
 							 <div style='margin-top:60px' class="section-tittle mb-35">
                            
-                           <% if (status2 !== 'None'){%>
+                           <% if (data.status2 !== 'None'){%>
                             <P> <span style="font-weight:bold;font-size:25px;color: #FF4800;">SCHEDULED<br> RETURN DELIVERY DATE :</span><br><span style='color:rgb(48, 46, 46);;font-size:24px;font-weight:;'><%=data.returndate %></span> </P>
                             <P> <span style="font-weight: bold;font-size:25px;color: #FF4800;">
                                 Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:24px;font-weight:;'>
@@ -366,7 +371,7 @@ s0.parentNode.insertBefore(s1,s0);
                                     </div>
                                    
                                 </div>
-                                <%  if(status2 !== 'None'){  %>
+                                <%  if(data.status2 !== 'None'){  %>
                                   <div>
                                     <% if(status2 === 'Returned to shipper'){ %>
 
@@ -398,6 +403,45 @@ s0.parentNode.insertBefore(s1,s0);
                             <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                             <div class="d-flex flex-column">
                                 <p class="font-weight-bold">Out<br>For Delivery</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Arrived</p>
+                            </div>
+                        </div>
+                    </div>
+            
+                   ..................................................
+                   <% } else if (status2 === "Held"){ %>
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-12">
+                        <ul id="progressbar" class="text-center">
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                            <li style="background:red;" class=" step0"></li>
+                            <li style="background:red;" class=" step0"></li>
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between top">
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold">Processed</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold"> Shipped</p>
+                            </div>
+                        </div>
+                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                            <div class="d-flex flex-column">
+                                <p class="font-weight-bold"><br>Held</p>
                             </div>
                         </div>
                         <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
