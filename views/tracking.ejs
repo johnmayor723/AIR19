@@ -122,6 +122,13 @@
     font-family: FontAwesome;
     content: "\f00c";
 }
+#progressbar li.active2:before, #progressbar li.active2:after {
+    background:  red;
+}
+#progressbar li.active2:before {
+    font-family: FontAwesome;
+    content: "\f00c";
+}
 .icon {
     width: 60px;
     height: 60px;
@@ -342,10 +349,15 @@ s0.parentNode.insertBefore(s1,s0);
                             <P> <span style="font-weight: bold;font-size:25px;color: #FF4800;">
                                 Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:24px;font-weight:;'>
                                     Returned To Shipper</span> </P>
+                                    <% else if (data.status2 === 'Held'){%>
+                                        <P> <span style="font-weight:bold;font-size:25px;color: #FF4800;">SCHEDULED<br> RETURN DELIVERY DATE :</span><br><span style='color:rgb(48, 46, 46);;font-size:24px;font-weight:;'>Un Known</span> </P>
+                                        <P> <span style="font-weight: bold;font-size:25px;color: #FF4800;">
+                                            Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:24px;font-weight:;'>
+                                                Held</span> </P>        
                         
-                          <%} else {%>
+                          <<%} else {%>
                             <P> <span style="font-weight:bold;font-size:25px;color: #FF4800;">SCHEDULED DELIVERY DATE :</span><br><span style='color:rgb(48, 46, 46);;font-size:24px;font-weight:;'><%=data.ddate %></span> </P>
-                            <P> <span style="font-weight: bold;font-size:25px;color: #FF4800;">Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:24px;font-weight:;'><%=data.status %></span> </P>
+                            <P> span style="font-weight: bold;font-size:25px;color: #FF4800;">Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:24px;font-weight:;'><%=data.status %></span> </P>
                            <%}%>
                            
                         </div>
@@ -422,8 +434,8 @@ s0.parentNode.insertBefore(s1,s0);
                         <ul id="progressbar" class="text-center">
                             <li class="active step0"></li>
                             <li class="active step0"></li>
-                            <li  class=" step0"></li>
-                            <li  class=" step0"></li>
+                            <li  class="active2 step0"></li>
+                            <li  class="active2 step0"></li>
                         </ul>
                         </div>
                     </div>
