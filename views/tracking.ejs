@@ -18,6 +18,7 @@
 
     <!-- Libraries Stylesheet -->
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/style.css" rel="stylesheet">
@@ -344,20 +345,20 @@ s0.parentNode.insertBefore(s1,s0);
 							<div class="row ">
 							 <div style='margin-top:60px' class="section-tittle mb-35">
                            
-                           <% if (data.status2 !== 'None'){%>
-                            <P> <span style="font-weight:bold;font-size:25px;color: #FF4800;">SCHEDULED<br> RETURN DELIVERY DATE :</span><br><span style='color:rgb(48, 46, 46);;font-size:24px;font-weight:;'><%=data.returndate %></span> </P>
-                            <P> <span style="font-weight: bold;font-size:25px;color: #FF4800;">
-                                Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:24px;font-weight:;'>
+                           <% if (data.status2 !== 'None' && data.status2 !== "Held"){%>
+                            <P> <span style="font-weight:bold;font-size:20px;color: #FF4800;">SCHEDULED<br> RETURN DELIVERY DATE :</span><br><span style='color:rgb(48, 46, 46);;font-size:20px;font-weight:;'><%=data.returndate %></span> </P>
+                            <P> <span style="font-weight: bold;font-size:20px;color: #FF4800;">
+                                Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:20px;font-weight:;'>
                                     Returned To Shipper</span> </P>
-                                    <% else if (data.status2 === 'Held'){%>
-                                        <P> <span style="font-weight:bold;font-size:25px;color: #FF4800;">SCHEDULED<br> RETURN DELIVERY DATE :</span><br><span style='color:rgb(48, 46, 46);;font-size:24px;font-weight:;'>Un Known</span> </P>
-                                        <P> <span style="font-weight: bold;font-size:25px;color: #FF4800;">
-                                            Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:24px;font-weight:;'>
+                                    <%} else if (data.status2 === 'Held'){%>
+                                        <P> <span style="font-weight:bold;font-size:20px;color: #FF4800;">SCHEDULED<br> RETURN DELIVERY DATE :</span><br><span style='color:rgb(48, 46, 46);;font-size:20px;font-weight:;'>Un Known</span> </P>
+                                        <P> <span style="font-weight: bold;font-size:20px;color: #FF4800;">
+                                            Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:20px;font-weight:;'>
                                                 Held</span> </P>        
                         
                           <<%} else {%>
-                            <P> <span style="font-weight:bold;font-size:25px;color: #FF4800;">SCHEDULED DELIVERY DATE :</span><br><span style='color:rgb(48, 46, 46);;font-size:24px;font-weight:;'><%=data.ddate %></span> </P>
-                            <P> span style="font-weight: bold;font-size:25px;color: #FF4800;">Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:24px;font-weight:;'><%=data.status %></span> </P>
+                            <P> <span style="font-weight:bold;font-size:20px;color: #FF4800;">SCHEDULED DELIVERY DATE :</span><br><span style='color:rgb(48, 46, 46);;font-size:20px;font-weight:;'><%=data.ddate %></span> </P>
+                            <P> <span style="font-weight: bold;font-size:20px;color: #FF4800;">Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:20px;font-weight:;'><%=data.status %></span> </P>
                            <%}%>
                            
                         </div>
@@ -401,28 +402,28 @@ s0.parentNode.insertBefore(s1,s0);
                         </div>
                     </div>
                     <div class="row justify-content-between top">
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="d-flex col-sm-3 icon-content">
                             <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Processing<br>To Return<br> Consignment</p>
+                                <p style="font-size:13px; class="font-weight-bold">Processing<br>To Return<br> Consignment</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 d-flex icon-content">
                             <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Proccessed <br>And Shipped</p>
+                                <p style="font-size:13px; class="font-weight-bold">Proccessed <br>And Shipped</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 d-flex icon-content">
                             <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Out<br>For Delivery</p>
+                                <p style="font-size:13px; class="font-weight-bold">Out<br>For Delivery</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 d-flex icon-content">
                             <img class="icon" src="https://i.imgur.com/HdsziHP.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Arrived</p>
+                                <p style="font-size:13px; class="font-weight-bold">Arrived</p>
                             </div>
                         </div>
                     </div>
@@ -432,36 +433,36 @@ s0.parentNode.insertBefore(s1,s0);
                     <div class="row d-flex justify-content-center">
                         <div class="col-12">
                         <ul id="progressbar" class="text-center">
-                            <li class="active step0"></li>
-                            <li class="active step0"></li>
+                            <li class="active2 step0"></li>
+                            <li class="active2 step0"></li>
                             <li  class="active2 step0"></li>
-                            <li  class="active2 step0"></li>
+                            <li  class=" step0"></li>
                         </ul>
                         </div>
                     </div>
                     <div class="row justify-content-between top">
-                        <div style="display: flex;flex-direction: column;" class=" col-sm-3 icon-content">
+                        <div style="display: flex;flex-direction: column;" class="d-flex col-sm-3 icon-content">
                             <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Processed</p>
+                                <p style="font-size:13px;" class="font-weight-bold">Processed</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="col-sm-3  icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 d-flex icon-content">
                             <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold"> Shipped</p>
+                                <p style="font-size:13px; class="font-weight-bold"> Shipped</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;margin-right:px;" class="col-sm-3  icon-content">
-                            <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                        <div style="display: flex;flex-direction: column;margin-right:px;" class="col-sm-3 d-flex  icon-content">
+                            <img class="icon" src="/img/held.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Held</p>
+                                <p style="font-size:13px; class="font-weight-bold">Held</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;padding-left:7px;" class="col-sm-3  icon-content">
+                        <div style="display: flex;flex-direction: column;padding-left:7px;" class="col-sm-3 d-flex icon-content">
                             <img class="icon" src="https://i.imgur.com/HdsziHP.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Arrived</p>
+                                <p style="font-size:13px; class="font-weight-bold">Arrived</p>
                             </div>
                         </div>
                     </div>
@@ -478,28 +479,28 @@ s0.parentNode.insertBefore(s1,s0);
                         </div>
                     </div>
                     <div class="row justify-content-between top">
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 d-flex icon-content">
                             <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Processing<br>To Return<br> Consignment</p>
+                                <p style="font-size:13px; class="font-weight-bold">Processing<br>To Return<br> Consignment</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 d-flex icon-content">
                             <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Proccessed <br>And Shipped</p>
+                                <p style="font-size:13px; class="font-weight-bold">Proccessed <br>And Shipped</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 d-flex icon-content">
                             <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Out<br>For Delivery</p>
+                                <p style="font-size:13px; class="font-weight-bold">Out<br>For Delivery</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 d-flex icon-content">
                             <img class="icon" src="https://i.imgur.com/HdsziHP.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Arrived</p>
+                                <p style="font-size:13px; class="font-weight-bold">Arrived</p>
                             </div>
                         </div>
                     </div>
@@ -515,28 +516,28 @@ s0.parentNode.insertBefore(s1,s0);
                             </div>
                         </div>
                         <div class="row justify-content-between top">
-                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <div style="display: flex;flex-direction: column;" class="col-sm-3 d-flex icon-content">
                                 <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
                                 <div class="d-flex flex-column">
-                                    <p class="font-weight-bold">Processing<br>To Return<br> Consignment</p>
+                                    <p style="font-size:13px; class="font-weight-bold">Processing<br>To Return<br> Consignment</p>
                                 </div>
                             </div>
-                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+<div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                 <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
                                 <div class="d-flex flex-column">
-                                    <p class="font-weight-bold">Processed <br>And Shipped</p>
+                                    <p style="font-size:13px; class="font-weight-bold">Processed <br>And Shipped</p>
                                 </div>
                             </div>
-                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+            <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                 <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                                 <div class="d-flex flex-column">
-                                    <p class="font-weight-bold">Out<br>For Delivery</p>
+                                    <p style="font-size:13px; class="font-weight-bold">Out<br>For Delivery</p>
                                 </div>
                             </div>
-                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                 <img class="icon" src="https://i.imgur.com/HdsziHP.png">
                                 <div class="d-flex flex-column">
-                                    <p class="font-weight-bold">Arrived</p>
+                                    <p style="font-size:13px; class="font-weight-bold">Arrived</p>
                                 </div>
                             </div>
                         </div>                   
@@ -552,28 +553,28 @@ s0.parentNode.insertBefore(s1,s0);
                                 </div>
                             </div>
                             <div class="row justify-content-between top">
-                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                     <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
                                     <div class="d-flex flex-column">
-                                        <p class="font-weight-bold">Processing<br>To Return<br> Consignment</p>
+                                        <p style="font-size:13px; class="font-weight-bold">Processing<br>To Return<br> Consignment</p>
                                     </div>
                                 </div>
-                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                     <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
                                     <div class="d-flex flex-column">
-                                        <p class="font-weight-bold">Out<br>For Delivery</p>
+                                        <p style="font-size:13px; class="font-weight-bold">Out<br>For Delivery</p>
                                     </div>
                                 </div>
-                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                     <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                                     <div class="d-flex flex-column">
-                                        <p class="font-weight-bold">En Route</p>
+                                        <p style="font-size:13px; class="font-weight-bold">En Route</p>
                                     </div>
                                 </div>
-                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                     <img class="icon" src="https://i.imgur.com/HdsziHP.png">
                                     <div class="d-flex flex-column">
-                                        <p class="font-weight-bold">Arrived</p>
+                                        <p style="font-size:13px; class="font-weight-bold">Arrived</p>
                                     </div>
                                 </div>
                             </div>                 
@@ -597,28 +598,28 @@ s0.parentNode.insertBefore(s1,s0);
                         </div>
                     </div>
                     <div class="row justify-content-between top">
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                             <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Processed</p>
+                                <p style="font-size:13px; class="font-weight-bold">Processed</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                             <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Shipped</p>
+                                <p style="font-size:13px; class="font-weight-bold">Shipped</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                             <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">In Transit</p>
+                                <p style="font-size:13px; class="font-weight-bold">In Transit</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 d-flex icon-content">
                             <img class="icon" src="https://i.imgur.com/HdsziHP.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Arrived</p>
+                                <p style="font-size:13px; class="font-weight-bold">Arrived</p>
                             </div>
                         </div>
                     </div>
@@ -635,28 +636,28 @@ s0.parentNode.insertBefore(s1,s0);
                         </div>
                     </div>
                     <div class="row justify-content-between top">
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                             <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Processed</p>
+                                <p style="font-size:13px; class="font-weight-bold">Processed</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                             <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Shipped</p>
+                                <p style="font-size:13px; class="font-weight-bold">Shipped</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                             <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">In Transit</p>
+                                <p style="font-size:13px; class="font-weight-bold">In Transit</p>
                             </div>
                         </div>
-                        <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                        <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                             <img class="icon" src="https://i.imgur.com/HdsziHP.png">
                             <div class="d-flex flex-column">
-                                <p class="font-weight-bold">Arrived</p>
+                                <p style="font-size:13px; class="font-weight-bold">Arrived</p>
                             </div>
                         </div>
                     </div>
@@ -672,28 +673,28 @@ s0.parentNode.insertBefore(s1,s0);
                             </div>
                         </div>
                         <div class="row justify-content-between top">
-                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                 <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
                                 <div class="d-flex flex-column">
-                                    <p class="font-weight-bold">Processed</p>
+                                    <p style="font-size:13px;  class="font-weight-bold">Processed</p>
                                 </div>
                             </div>
-                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                 <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
                                 <div class="d-flex flex-column">
-                                    <p class="font-weight-bold">Shipped</p>
+                                    <p style="font-size:13px; class="font-weight-bold">Shipped</p>
                                 </div>
                             </div>
-                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                 <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                                 <div class="d-flex flex-column">
-                                    <p class="font-weight-bold">In Transit</p>
+                                    <p style="font-size:13px; class="font-weight-bold">In Transit</p>
                                 </div>
                             </div>
-                            <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                            <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                 <img class="icon" src="https://i.imgur.com/HdsziHP.png">
                                 <div class="d-flex flex-column">
-                                    <p class="font-weight-bold">Arrived</p>
+                                    <p style="font-size:13px; class="font-weight-bold">Arrived</p>
                                 </div>
                             </div>
                         </div>                   
@@ -709,28 +710,28 @@ s0.parentNode.insertBefore(s1,s0);
                                 </div>
                             </div>
                             <div class="row justify-content-between top">
-                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                     <img class="icon"  src="https://i.imgur.com/9nnc9Et.png">
                                     <div class="d-flex flex-column">
-                                        <p class="font-weight-bold">Processed</p>
+                                        <p style="font-size:13px; class="font-weight-bold">Processed</p>
                                     </div>
                                 </div>
-                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                     <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
                                     <div class="d-flex flex-column">
-                                        <p class="font-weight-bold">Shipped</p>
+                                        <p  style="font-size:13px; class="font-weight-bold">Shipped</p>
                                     </div>
                                 </div>
-                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                     <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                                     <div class="d-flex flex-column">
-                                        <p class="font-weight-bold">In Transit</p>
+                                        <p style="font-size:13px; class="font-weight-bold">In Transit</p>
                                     </div>
                                 </div>
-                                <div style="display: flex;flex-direction: column;" class="row d-flex icon-content">
+                                <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                     <img class="icon" src="https://i.imgur.com/HdsziHP.png">
                                     <div class="d-flex flex-column">
-                                        <p class="font-weight-bold">Arrived</p>
+                                        <p style="font-size:13px; class="font-weight-bold">Arrived</p>
                                     </div>
                                 </div>
                             </div>                 
@@ -764,28 +765,108 @@ s0.parentNode.insertBefore(s1,s0);
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
+        <div style="height: 50px;width: 100%;background:#FF4800;"></div>
         <div class="modal-header">
-          <h5 class="modal-title" style="color: #FF4800;" id="exampleModalLabel">Shipment Status</h5>
+
+          <h5 class="modal-title" style="color: rgb(31, 30, 30);" id="exampleModalLabel">Shipment Information</h5>
           <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div>                
-                    <ul>
-                        <li>From <%=data.sname%></li>
-                        <li>To <%=data.rname%></li>
-                        <li>Consignment shipped from <%=data.saddress%></li>
-                        <li>Shipping To <%=data.paddress%></li>
-                        <li>Dipatched on <%=data.pdate%></li>
-                        <li>Estimated to arrive destination on  <%=data.ddate%></li>
-                        
-                        <% if(data.status2){%>
-                         <li><%=data.status2%></li>   
-                          <%} else {  %>
-                            <li> <%=data.item1%></li>
-                            <li> <%=data.item2%></li>
-                        <%}%>
-                                        
-                    </ul>             
+            <div>
+                <i style="color: #FF4800;" class="fas fa-cube">
+               <span style="font-weight: bold;margin-bottom: 15px;color: rgb(31, 30, 30) ;"> Shipment Overview</span></i>
+                <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
+                    <div class="row">
+                        <div style="padding-left:40px;padding-top:5px;" class="col-6">
+                          <p style="color: rgb(31, 30, 30); font-weight: bold;">Tracking Number:</p>
+                        </div>
+                        <div style="padding-top:5px;" class="col-6">
+                           <p><%=data.tnumber%></p> 
+                        </div>
+                    </div>
+                </div> 
+                <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;">
+                    <div class="row">
+                        <div style="padding-left:40px;padding-top:5px;" class="col-6">
+                          <p style="color: rgb(31, 30, 30); font-weight: bold;">Ship Date:</p>
+                        </div>
+                        <div style="padding-top:5px;" class="col-6">
+                           <p><%=data.pdate%></p> 
+                        </div>
+                    </div>
+                </div> 
+                <% if(!status2){%>
+                    <div style="margin-bottom: 20px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
+                    <div class="row">
+                        <div style="padding-left:40px;padding-top:5px;" class="col-6">
+                          <p style="color: rgb(31, 30, 30); font-weight: bold;">Sheduled Delivery Date:</p>
+                        </div>
+                        <div style="padding-top:5px;" class="col-6">
+                           <p><%=data.status%></p> 
+                        </div>
+                    </div>
+                </div> 
+                 <% }   else {%>
+                      <div style="margin-bottom: 20px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
+                    <div class="row">
+                        <div style="padding-left:40px;padding-top:5px;" class="col-6">
+                          <p style="color: rgb(31, 30, 30); font-weight: bold;">Sheduled Delivery Date:</p>
+                        </div>
+                        <div style="padding-top:5px;" class="col-6">
+                           <p><%=data.status2 %></p> 
+                        </div>
+                    </div>
+                </div> 
+                 <%}%>
+                 <div>
+                    <i style="color: #FF4800;" class="fas fa-info-circle">
+                   <span style="font-weight: bold;margin-bottom: 15px;color: rgb(31, 30, 30) ;"> Details</span></i>
+                    <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
+                        <div class="row">
+                            <div style="padding-left:40px;padding-top:5px;" class="col-6">
+                              <p style="color: rgb(31, 30, 30); font-weight: bold;">Sender's Name:</p>
+                            </div>
+                            <div style="padding-top:5px;" class="col-6">
+                               <p><%=data.sname%></p> 
+                            </div>
+                        </div>
+                    </div> 
+                    <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;">
+                        <div class="row">
+                            <div style="padding-left:40px;padding-top:5px;" class="col-6">
+                              <p style="color: rgb(31, 30, 30); font-weight: bold;">Receipient's Name:</p>
+                            </div>
+                            <div style="padding-top:5px;" class="col-6">
+                               <p><%=data.rname%></p> 
+                            </div>
+                        </div>
+                    </div> 
+                    <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
+                        <div class="row">
+                            <div style="padding-left:40px;padding-top:5px;" class="col-6">
+                              <p style="color: rgb(31, 30, 30); font-weight: bold;">Originating Address:</p>
+                            </div>
+                            <div style="padding-top:5px;" class="col-6">
+                               <p><%=data.saddress%></p> 
+                            </div>
+                        </div>
+                    </div> 
+                    <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;">
+                        <div class="row">
+                            <div style="padding-left:40px;padding-top:5px;margin-bottom: 60px;" class="col-6">
+                              <p style="color: rgb(31, 30, 30); font-weight: bold;">Receipient's Address:</p>
+                            </div>
+                            <div style="padding-top:5px;" class="col-6">
+                               <p><%=data.paddress%></p> 
+                            </div>
+                        </div>
+                    </div> 
+                    
+                    
+                    </div>   
+                           
+                    
+                                
                 
             </div>
         </div>
