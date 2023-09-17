@@ -351,7 +351,7 @@ s0.parentNode.insertBefore(s1,s0);
                                 Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:20px;font-weight:;'>
                                     Returned To Shipper</span> </P>
                                     <%} else if (data.status2 === 'Held'){%>
-                                        <P> <span style="font-weight:bold;font-size:20px;color: #FF4800;">SCHEDULED<br> RETURN DELIVERY DATE :</span><br><span style='color:rgb(48, 46, 46);;font-size:20px;font-weight:;'>Un Known</span> </P>
+                                        <P> <span style="font-weight:bold;font-size:20px;color: #FF4800;">SCHEDULED<br> RETURN DELIVERY DATE :</span><br><span style='color:rgb(48, 46, 46);;font-size:20px;font-weight:;'>Pending</span> </P>
                                         <P> <span style="font-weight: bold;font-size:20px;color: #FF4800;">
                                             Delivery Status :</span><br><span style='color:rgb(48, 46, 46);font-size:20px;font-weight:;'>
                                                 Held</span> </P>        
@@ -765,10 +765,10 @@ s0.parentNode.insertBefore(s1,s0);
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div style="height: 50px;width: 100%;background:#FF4800;"></div>
-        <div class="modal-header">
+        
+        <div style="background-color: #FF4800;" class="modal-header">
 
-          <h5 class="modal-title" style="color: rgb(31, 30, 30);" id="exampleModalLabel">Shipment Information</h5>
+          <h5 class="modal-title" style="color: white;" id="exampleModalLabel">Shipment Information</h5>
           <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -795,14 +795,14 @@ s0.parentNode.insertBefore(s1,s0);
                         </div>
                     </div>
                 </div> 
-                <% if(!status2){%>
+                <% if(status2 === "None"){%>
                 <div style="margin-bottom: 20px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
                     <div class="row">
                         <div style="padding-left:40px;padding-top:5px;" class="col-6">
                           <p style="color: rgb(31, 30, 30); font-weight: bold;">Sheduled Delivery Date:</p>
                         </div>
                         <div style="padding-top:5px;" class="col-6">
-                           <p><%=data.status%></p> 
+                           <p><%=data.ddate%></p> 
                         </div>
                     </div>
                 </div> 
@@ -812,7 +812,7 @@ s0.parentNode.insertBefore(s1,s0);
                           <p style="color: rgb(31, 30, 30); font-weight: bold;">Shipment Status:</p>
                         </div>
                         <div style="padding-top:5px;" class="col-6">
-                           <p><%=data.status%></p> 
+                           <p><%= data.status%></p> 
                         </div>
                     </div>
                 </div> 
@@ -892,7 +892,7 @@ s0.parentNode.insertBefore(s1,s0);
                 
             </div>
         </div>
-        <div class="modal-footer">
+        <div data-mdb-dismiss="modal" class="modal-footer">
           <button style="background-color: #FF4800;color: #fff;" type="button" class="btn btn-secondary" data-mdb-dismiss="modal">Close</button>
          
         </div>
