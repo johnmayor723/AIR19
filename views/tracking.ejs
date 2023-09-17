@@ -796,7 +796,7 @@ s0.parentNode.insertBefore(s1,s0);
                     </div>
                 </div> 
                 <% if(!status2){%>
-                    <div style="margin-bottom: 20px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
+                <div style="margin-bottom: 20px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
                     <div class="row">
                         <div style="padding-left:40px;padding-top:5px;" class="col-6">
                           <p style="color: rgb(31, 30, 30); font-weight: bold;">Sheduled Delivery Date:</p>
@@ -806,6 +806,17 @@ s0.parentNode.insertBefore(s1,s0);
                         </div>
                     </div>
                 </div> 
+                 <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;">
+                    <div class="row">
+                        <div style="padding-left:40px;padding-top:5px;" class="col-6">
+                          <p style="color: rgb(31, 30, 30); font-weight: bold;">Shipment Status:</p>
+                        </div>
+                        <div style="padding-top:5px;" class="col-6">
+                           <p><%=data.status%></p> 
+                        </div>
+                    </div>
+                </div> 
+                
                  <% }   else {%>
                       <div style="margin-bottom: 20px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
                     <div class="row">
@@ -813,14 +824,24 @@ s0.parentNode.insertBefore(s1,s0);
                           <p style="color: rgb(31, 30, 30); font-weight: bold;">Sheduled Delivery Date:</p>
                         </div>
                         <div style="padding-top:5px;" class="col-6">
-                           <p><%=data.status2 %></p> 
+                           <p><%=data.status2%></p> 
                         </div>
                     </div>
                 </div> 
+                <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;">
+                    <div class="row">
+                        <div style="padding-left:40px;padding-top:5px;" class="col-6">
+                          <p style="color: rgb(31, 30, 30); font-weight: bold;">Shipment Status:</p>
+                        </div>
+                        <div style="padding-top:5px;" class="col-6">
+                           <p><%=data.status2%></p> 
+                        </div>
+                    </div>
+                </div>
                  <%}%>
                  <div>
                     <i style="color: #FF4800;" class="fas fa-info-circle">
-                   <span style="font-weight: bold;margin-bottom: 15px;color: rgb(31, 30, 30) ;"> Details</span></i>
+                   <span style="font-weight: bold;margin-bottom: 15px;color: rgb(31, 30, 30) ;">Shipment Details</span></i>
                     <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
                         <div class="row">
                             <div style="padding-left:40px;padding-top:5px;" class="col-6">
@@ -841,6 +862,7 @@ s0.parentNode.insertBefore(s1,s0);
                             </div>
                         </div>
                     </div> 
+                
                     <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
                         <div class="row">
                             <div style="padding-left:40px;padding-top:5px;" class="col-6">
