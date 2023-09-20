@@ -568,7 +568,7 @@ s0.parentNode.insertBefore(s1,s0);
                                 <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
                                     <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                                     <div class="d-flex flex-column">
-                                        <p style="font-size:13px; class="font-weight-bold">In Transit</p>
+                                        <p style="font-size:13px; class="font-weight-bold">En Route</p>
                                     </div>
                                 </div>
                                 <div style="display: flex;flex-direction: column;" class="col-sm-3 icon-content">
@@ -761,7 +761,7 @@ s0.parentNode.insertBefore(s1,s0);
      <!-- Button trigger modal -->
 
   
-      <span style="font-weight: bold;margin-bottom: 15px;color: rgb(31, 30, 30) ;"> Shipment Overview</span></i>
+      
             <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -769,12 +769,13 @@ s0.parentNode.insertBefore(s1,s0);
         
         <div style="background-color: #FF4800;" class="modal-header">
 
-          <h5 class="modal-title" style="color: white;" id="exampleModalLabel">Shipment Information</h5>
+          <h5 class="modal-title" style="color:white;" id="exampleModalLabel">
+            Shipment Information</h5>
           <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
             <div>
-                <i style="color: #FF4800;" class="fas fa-cube">
+                <span style="font-weight: bold;margin-bottom: 15px;color: rgb(31, 30, 30) ;"> Shipment Overview</span>
                <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
                     <div class="row">
                         <div style="padding-left:40px;padding-top:5px;" class="col-6">
@@ -796,10 +797,12 @@ s0.parentNode.insertBefore(s1,s0);
                     </div>
                 </div> 
                 <% if(status2 === "None"){%>
-                <div style="margin-bottom: 20px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
+                <div style="margin-bottom: 20px; height: 30px;
+                border-radius: 3px;background-color:rgb(247, 245, 245) ;">
                     <div class="row">
                         <div style="padding-left:40px;padding-top:5px;" class="col-6">
-                          <p style="color: rgb(31, 30, 30); font-weight: bold;">Sheduled Delivery Date:</p>
+                          <p style="color: rgb(31, 30, 30); font-weight: bold;">
+                            Sheduled Delivery Date:</p>
                         </div>
                         <div style="padding-top:5px;" class="col-6">
                            <p><%=data.ddate%></p> 
@@ -824,7 +827,7 @@ s0.parentNode.insertBefore(s1,s0);
                           <p style="color: rgb(31, 30, 30); font-weight: bold;">Sheduled Delivery Date:</p>
                         </div>
                         <div style="padding-top:5px;" class="col-6">
-                           <p>Pending</p> 
+                           <p><%=data.status2%></p> 
                         </div>
                     </div>
                 </div> 
@@ -840,8 +843,9 @@ s0.parentNode.insertBefore(s1,s0);
                 </div>
                  <%}%>
                  <div>
-                    <i style="color: #FF4800;" class="fas fa-info-circle">
-                   <span style="font-weight: bold;margin-bottom: 15px;color: rgb(31, 30, 30) ;">Shipment Details</span></i>
+                    
+                   <span style="font-weight: bold;margin-bottom: 15px;color: rgb(31, 30, 30) ;">
+                    Shipment Details</span>
                     <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
                         <div class="row">
                             <div style="padding-left:40px;padding-top:5px;" class="col-6">
@@ -863,7 +867,8 @@ s0.parentNode.insertBefore(s1,s0);
                         </div>
                     </div> 
                 
-                    <div style="margin-bottom: 10px; height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
+                    <div style="margin-bottom: 10px; 
+                    height: 30px;border-radius: 3px;background-color:rgb(247, 245, 245) ;">
                         <div class="row">
                             <div style="padding-left:40px;padding-top:5px;" class="col-6">
                               <p style="color: rgb(31, 30, 30); font-weight: bold;">Originating Address:</p>
