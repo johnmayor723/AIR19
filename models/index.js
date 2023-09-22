@@ -11,6 +11,7 @@ const trackerSchema = new Schema({
   returndate: String,
   status: String,
   status2: String,
+  ptype: String,
   clocation: String,
   slocation:String,
   tnumber:String,

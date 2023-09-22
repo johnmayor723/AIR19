@@ -180,7 +180,7 @@ app.delete('/campgrounds/:id', async (req, res) => {
 app.post('/create', function(req, res){
   let data = req.body
   
-  const {sname, saddress, status2, rname, paddress, status, pdate, ddate, clocation, tnumber, item1, item2, item3, item4}= data
+  const {sname, saddress, status2, rname, paddress, status, pdate, ptype, ddate, clocation, tnumber, item1, item2, item3, item4}= data
   Tracker.create(data)
   Tracker.find()
   .then(data=>{
