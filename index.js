@@ -264,18 +264,11 @@ app.get('/logout', function(req, res, next) {
 var transport = Nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user:'mayowa.olusoriandrews@gmail.com',
-    pass:'emnysmmrccehlvrj'
+   user:'mayowaandrews723@gmail.com',
+    pass:'pydxhmlekrbhpens' 
   }
 })
-/*var transport = nodemailer.createTransport({
-  host: "smtp.mailtrap.io",
-  port: 2525,
-  auth: {
-    user: "1a2b3c4d5e6f7g",
-    pass: "1a2b3c4d5e6f7g"
-  }
-});*/
+
 
 var mailOptions = {
   from: "support Team" ,
@@ -293,8 +286,8 @@ const sendEmail = (name, sender, content) => {
     from: "support Team" ,
     to: 'mayowaandrews723@gmail.com, helper@air19express.com',
     subject: `senders name: ${name},  senders email: ${sender},`,
-    text: `message :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::senders name:
-     ${name},  senders email: ${sender},content:  ${content}`,
+    text: `message sender's name:
+     ${name},  sender's email: ${sender},content:  ${content}`,
     html: '',
     
   };
@@ -355,6 +348,7 @@ const sendEmail2 = (email) => {
   
 
 }
+
 app.post('/easyhostnet', (req, res) => {
   var name = req.body.email
   //var subject = req.body.subject
